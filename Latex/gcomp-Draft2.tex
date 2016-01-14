@@ -5,6 +5,7 @@
 %\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
 \usepackage{graphicx}
 \usepackage{amssymb}
+\usepackage{etoolbox}
 \usepackage{pifont}
 \newcommand{\cmark}{\ding{51}}%
 \newcommand{\xmark}{\ding{55}}%
@@ -18,6 +19,12 @@
 \setlength{\parskip}{\baselineskip}%
 \setlength{\parindent}{0pt}%
 
+
+\usepackage{setspace}
+\usepackage{etoolbox}
+\usepackage{lipsum}
+
+\AtBeginEnvironment{tabular}{\doublespacing}
 \begin{document}
 \maketitle
 \section{Introduction}
@@ -99,7 +106,7 @@ T_{(1,1)-(0,0)} =  Pr(Y_{2}=1 | do(X_{1}=1, X_{2}=1))  -   Pr(Y_{2}=1 | do(X_{1}
 
 
 $\quad$
-
+\begin{spacing}{1.9}
 \begin{table}[h]
 \begin{center}
  \begin{tabular}{||c | c c c c||} 
@@ -141,7 +148,7 @@ X & no treatment  & treatment & Intervention of interest & Treatment \\ [0.5ex]
 \end{center}
 \caption{Model Components.}
 \end{table}
-
+\end{spacing}
 
 
 
