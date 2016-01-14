@@ -1,0 +1,49 @@
+This is BibTeX, Version 0.99d (TeX Live 2015)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: gcomp-Draft2.aux
+The style file: ieeetr.bst
+Database file #1: gcomp_refs.bib
+Warning--empty journal in kurokiinstrumental
+Warning--empty year in kurokiinstrumental
+You've used 13 entries,
+            1876 wiz_defined-function locations,
+            560 strings with 6211 characters,
+and the built_in function-call counts, 3874 in all, are:
+= -- 392
+> -- 161
+< -- 0
++ -- 59
+- -- 46
+* -- 272
+:= -- 550
+add.period$ -- 14
+call.type$ -- 13
+change.case$ -- 11
+chr.to.int$ -- 0
+cite$ -- 15
+duplicate$ -- 202
+empty$ -- 333
+format.name$ -- 46
+if$ -- 937
+int.to.chr$ -- 0
+int.to.str$ -- 13
+missing$ -- 11
+newline$ -- 44
+num.names$ -- 13
+pop$ -- 34
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 154
+stack$ -- 0
+substring$ -- 272
+swap$ -- 98
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 2
+while$ -- 36
+width$ -- 15
+write$ -- 130
+(There were 2 warnings)

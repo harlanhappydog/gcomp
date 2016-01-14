@@ -1,0 +1,70 @@
+\begin{thebibliography}{10}
+
+\bibitem{karim2014marginal}
+M.~E. Karim, P.~Gustafson, J.~Petkau, Y.~Zhao, A.~Shirani, E.~Kingwell,
+  C.~Evans, M.~van~der Kop, J.~Oger, and H.~Tremlett, ``Marginal structural cox
+  models for estimating the association between $\beta$-interferon exposure and
+  disease progression in a multiple sclerosis cohort,'' {\em American journal
+  of epidemiology}, vol.~180, no.~2, pp.~160--171, 2014.
+
+\bibitem{johnston2008use}
+K.~Johnston, P.~Gustafson, A.~Levy, and P.~Grootendorst, ``Use of instrumental
+  variables in the analysis of generalized linear models in the presence of
+  unmeasured confounding with applications to epidemiological research,'' {\em
+  Statistics in medicine}, vol.~27, no.~9, pp.~1539--1556, 2008.
+
+\bibitem{tremlett2008natural}
+H.~Tremlett, Y.~Zhao, and V.~Devonshire, ``Natural history of
+  secondary-progressive multiple sclerosis,'' {\em Multiple sclerosis},
+  vol.~14, no.~3, pp.~314--324, 2008.
+
+\bibitem{tremlett2010new}
+H.~Tremlett, Y.~Zhao, P.~Rieckmann, and M.~Hutchinson, ``New perspectives in
+  the natural history of multiple sclerosis,'' {\em Neurology}, vol.~74,
+  no.~24, pp.~2004--2015, 2010.
+
+\bibitem{saarela2015bayesian}
+O.~Saarela, D.~A. Stephens, E.~E. Moodie, and M.~B. Klein, ``On bayesian
+  estimation of marginal structural models,'' {\em Biometrics}, 2015.
+
+\bibitem{cain2009effect}
+L.~E. Cain, S.~R. Cole, S.~Greenland, T.~T. Brown, J.~S. Chmiel, L.~Kingsley,
+  and R.~Detels, ``Effect of highly active antiretroviral therapy on incident
+  aids using calendar period as an instrumental variable,'' {\em American
+  journal of epidemiology}, p.~kwp002, 2009.
+
+\bibitem{borsi2012estimating}
+L.~Borsi, {\em Estimating the Causal Effect of Switching to Second-line
+  Antiretroviral HIV Treatment Using G-computation}.
+\newblock PhD thesis, ETH, Department of Mathematics, 2012.
+
+\bibitem{kurokiinstrumental}
+M.~Kuroki and Z.~Cai, ``Instrumental variable tests for directed acyclic graph
+  models,''
+
+\bibitem{greenland2000introduction}
+S.~Greenland, ``An introduction to instrumental variables for
+  epidemiologists,'' {\em International journal of epidemiology}, vol.~29,
+  no.~4, pp.~722--729, 2000.
+
+\bibitem{peter2011marginal}
+K.~Peter, {\em Marginal structural models and causal inference}.
+\newblock PhD thesis, Master thesis, ETH, 2011.
+
+\bibitem{chakraborty2013g}
+B.~Chakraborty and E.~E. Moodie, ``G-computation: Parametric estimation of
+  optimal dtrs,'' in {\em Statistical Methods for Dynamic Treatment Regimes},
+  pp.~101--112, Springer, 2013.
+
+\bibitem{taubman2009intervening}
+S.~L. Taubman, J.~M. Robins, M.~A. Mittleman, and M.~A. Hern{\'a}n,
+  ``Intervening on risk factors for coronary heart disease: an application of
+  the parametric g-formula,'' {\em International Journal of Epidemiology},
+  vol.~38, no.~6, pp.~1599--1611, 2009.
+
+\bibitem{snowden2011implementation}
+J.~M. Snowden, S.~Rose, and K.~M. Mortimer, ``Implementation of g-computation
+  on a simulated data set: demonstration of a causal inference technique,''
+  {\em American Journal of Epidemiology}, p.~kwq472, 2011.
+
+\end{thebibliography}

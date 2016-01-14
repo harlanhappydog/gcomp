@@ -5,7 +5,11 @@
 %\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
 \usepackage{graphicx}
 \usepackage{amssymb}
+\usepackage{pifont}
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
 \usepackage{epstopdf}
+\usepackage{tikz}
 \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
 
 \title{On Bayesian g-Computation and Instrumental Variables}
@@ -19,22 +23,94 @@
 After a marked change in treatment strategy, there is an obvious desire to infer the benefit of this change, often in terms of longer-term outcomes than can be assessed in clinical trials.
 Thus there is a need to use observational data, but this is typically accompanied by concern about confounding by indication - if patients start on the new therapy because they aren't doing well, straight-up comparisons of ever versus never treated patients are not fair.   One strategy is to apply modern causal inference tools that can appropriately deal with this.  Another, seemingly cruder strategy, would involve treating calendar period of reaching eligibility for treatment as an instrumental variable.   Each approach involves very strong assumptions, though interestingly they are different assumptions, one not stronger than the other.  So we want to compare, at least in terms of power to detect treatment efficacy in the first instance.
 
+$\quad$
+
+
+\textbf{Frequentist with logistic model:}
+$Pr(A=1 | B=b, C=c) = predict(logistic(Pr(A=1 | B=b, C=c)))$
+
+$\quad$
+
+\textbf{Bayesian with Uniform priors:}
+$Pr(A=1 | B=b, C=c) \sim Beta(1+ \sum_{i=1}^{n}1_{(A=1,B=b,C=c)}(x_{i}), 1+ \sum_{i=1}^{n}1_{(A=0,B=b,C=c)(x_{i})})$
+
+$\quad$
+
+
+\begin{center}
+ \begin{tabular}{||c c c ||} 
+ \hline
+ Assumption & IV & g-comp \\ [0.5ex] 
+ \hline\hline
+ H not a confounder & \checkmark & \xmark  \\ 
+ \hline
+C is the only confouder & \xmark & \checkmark \\ [1ex] 
+ \hline
+\end{tabular}
+\end{center}
+
+
 \begin{figure}[h]
-\includegraphics[width=11cm]{pic1.png}
+\includegraphics[width=11cm]{mypic1.png}
 \caption{Okay}
 \centering
 \end{figure}
 
 \begin{figure}[h]
-\includegraphics[width=6cm]{pic2.png}
+\includegraphics[width=6cm]{mypic2.png}
 \caption{Okay}
 \centering
 \end{figure}
 
+$\quad$
 
-%\begin{equation}
-%Pr(H=h_{i}) \cdot Pr(C_{1}=c_{i} | H=h_{i}) \cdot  Pr(C_{2}=c_{i} | H=h_{i}, C_{1}=c_{i})
-%\end{equation}
+Target value to estimate alongside associated $p$-value:
+
+\begin{equation}
+T_{(1,1)-(0,0)} =  Pr(Y_{2}=1 | do(X_{1}=1, X_{2}=1))  -   Pr(Y_{2}=1 | do(X_{1}=0, X_{2}=0))
+\end{equation}
+
+$\quad$
+
+\textbf{With $Y_1$, without $H$:}
+
+\begin{align*}
+  Pr(Y_{2}=1 | do(X_{1}=x_{1}, X_{2}=x_{2})) & =  \sum_{y_{1}=0}^{1} \sum_{c_{1}=0}^{1} \sum_{c_{2}=0}^{1}
+ Pr(C_{1}=c_{1}) \\
+ &\cdot   Pr(C_{2}=c_{2} | C_{1}=c_{1}, X_{1}=x_{1}) \\
+ & \cdot   Pr(Y_{1}=y_{1} | C_{1}=c_{1}, X_{1}=x_{1}) \\
+ &\cdot   Pr(Y_{2}=1 | C_{2}=c_{2}, X_{2}=x_{2}, Y_{1}=y_{1})
+\end{align*}
+
+\textbf{With $Y_1$, and with $H$:}
+
+\begin{align*}
+  Pr(Y_{2}=1 | do(X_{1}=x_{1}, X_{2}=x_{2})) & =  \sum_{y_{1}=0}^{1} \sum_{c_{1}=0}^{1} \sum_{c_{2}=0}^{1} \sum_{h=0}^{1}
+ Pr(H=h) \cdot Pr(C_{1}=c_{1} | H=h) \\
+ &\cdot   Pr(C_{2}=c_{2} | C_{1}=c_{1}, X_{1}=x_{1}, H=h) \\
+ & \cdot   Pr(Y_{1}=y_{1} | C_{1}=c_{1}, X_{1}=x_{1}, H=h) \\
+ &\cdot   Pr(Y_{2}=1 | C_{2}=c_{2}, X_{2}=x_{2}, Y_{1}=y_{1}, H=h)
+\end{align*}
+
+\textbf{Without $Y_1$, without $H$:}
+
+\begin{align*}
+  Pr(Y_{2}=1 | do(X_{1}=x_{1}, X_{2}=x_{2})) & =  \sum_{c_{1}=0}^{1} \sum_{c_{2}=0}^{1}
+ Pr(C_{1}=c_{1}) \\
+ &\cdot   Pr(C_{2}=c_{2} | C_{1}=c_{1}, X_{1}=x_{1}) \\
+ &\cdot   Pr(Y_{2}=1 | C_{2}=c_{2}, X_{2}=x_{2})
+\end{align*}
+
+\textbf{Without $Y_1$, with $H$:}
+
+\begin{align*}
+  Pr(Y_{2}=1 | do(X_{1}=x_{1}, X_{2}=x_{2})) & =  \sum_{c_{1}=0}^{1} \sum_{c_{2}=0}^{1} \sum_{h=0}^{1}
+ Pr(H=h) \cdot Pr(C_{1}=c_{1} | H=h) \\
+ &\cdot   Pr(C_{2}=c_{2} | C_{1}=c_{1}, X_{1}=x_{1}, H=h) \\
+ &\cdot   Pr(Y_{2}=1 | C_{2}=c_{2}, X_{2}=x_{2}, H=h)
+\end{align*}
+
+
 
 
  \section{Methods}
@@ -63,7 +139,7 @@ Violations of assumptions
 
 I don?t know whether we?d find a good ?real-data? example, but we could address the question of how much data we would need (how many subjects, over how long a time period) in order to say something useful about the efficacy of beta-interferon for MS in terms of long-term disability.
 
-Random citation \cite{saarela2015bayesian} embeddeed in text.
+Random citation \cite{saarela2015bayesian} embedded in text.
 
 
 
