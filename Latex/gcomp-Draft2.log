@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  14 JAN 2016 10:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  18 JAN 2016 11:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -529,24 +529,24 @@ Package: lipsum 2014/07/27 v1.3 150 paragraphs of Lorem Ipsum dummy text
 (./gcomp-Draft2.aux)
 \openout1 = `gcomp-Draft2.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Try loading font information for U+msa on input line 28.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Try loading font information for U+msa on input line 31.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 28.
+LaTeX Font Info:    Try loading font information for U+msb on input line 31.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -604,24 +604,19 @@ Missing character: There is no ­ in font cmr10!
 Missing character: There is no ­ in font cmr10!
 Missing character: There is no ­ in font cmr10!
 Missing character: There is no ­ in font cmr10!
- [1{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (4.3059pt too wide) in paragraph at lines 55--76
- [] 
+ [1{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
+<modelplot.png, id=23, 516.93124pt x 387.4475pt>
+File: modelplot.png Graphic file (type png)
+ <use modelplot.png>
+Package pdftex.def Info: modelplot.png used on input line 107.
+(pdftex.def)             Requested size: 512.1496pt x 383.89937pt.
+
+Overfull \hbox (82.14497pt too wide) in paragraph at lines 107--108
+ [][] 
  []
 
-[2] <mypic2.png, id=23, 322.20375pt x 222.8325pt>
-File: mypic2.png Graphic file (type png)
- <use mypic2.png>
-Package pdftex.def Info: mypic2.png used on input line 96.
-(pdftex.def)             Requested size: 341.43306pt x 236.14012pt.
 
-<mypic1.png, id=25, 291.0875pt x 153.57375pt>
-File: mypic1.png Graphic file (type png)
- <use mypic1.png>
-Package pdftex.def Info: mypic1.png used on input line 102.
-(pdftex.def)             Requested size: 256.0748pt x 135.1125pt.
-
-Overfull \hbox (44.0648pt too wide) in paragraph at lines 112--148
+Overfull \hbox (44.0648pt too wide) in paragraph at lines 117--153
  [] 
  []
 
@@ -634,14 +629,11 @@ Overfull \hbox (131.1757pt too wide) has occurred while \output is active
 INING EFFICACY FROM OBSERVATIONAL DATA []
  []
 
-[3 <./mypic2.png> <./mypic1.png>] [4]
-Overfull \hbox (131.1757pt too wide) has occurred while \output is active
- \OT1/cmr/m/n/8 ON BAYESIAN G-COMPUTATION AND INSTRUMENTAL VARIABLES FOR DETERM
-INING EFFICACY FROM OBSERVATIONAL DATA []
- []
+[3 <./modelplot.png>]
+Underfull \vbox (badness 1308) has occurred while \output is active []
 
-[5]
-Overfull \hbox (32.75208pt too wide) in paragraph at lines 221--223
+ [4]
+Overfull \hbox (32.75208pt too wide) in paragraph at lines 226--228
 []\OT1/cmr/bx/n/10.95 Frequentist g-comp with lo-gis-tic model: $\OML/cmm/m/it/
 10.95 Pr\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 A \OT1/cmr/m/n/10.95 = 1\OMS/cm
 sy/m/n/10.95 j\OML/cmm/m/it/10.95 B \OT1/cmr/m/n/10.95 = \OML/cmm/m/it/10.95 b;
@@ -651,54 +643,57 @@ it/10.95 predict\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 logistic\OT1/cmr/m/n/10
 /n/10.95 =
  []
 
-<RplotPaul.pdf, id=39, 505.89pt x 505.89pt>
-File: RplotPaul.pdf Graphic file (type pdf)
- <use RplotPaul.pdf>
-Package pdftex.def Info: RplotPaul.pdf used on input line 253.
-(pdftex.def)             Requested size: 341.43306pt x 341.43785pt.
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Underfull \vbox (badness 6575) has occurred while \output is active []
-
- [6]
 Overfull \hbox (131.1757pt too wide) has occurred while \output is active
  \OT1/cmr/m/n/8 ON BAYESIAN G-COMPUTATION AND INSTRUMENTAL VARIABLES FOR DETERM
 INING EFFICACY FROM OBSERVATIONAL DATA []
  []
 
-[7 <./RplotPaul.pdf>] (./gcomp-Draft2.bbl) [8] (./gcomp-Draft2.aux) ) 
+[5] <RplotPaul.pdf, id=37, 505.89pt x 505.89pt>
+File: RplotPaul.pdf Graphic file (type pdf)
+ <use RplotPaul.pdf>
+Package pdftex.def Info: RplotPaul.pdf used on input line 258.
+(pdftex.def)             Requested size: 341.43306pt x 341.43785pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[6] (./gcomp-Draft2.bbl
+Overfull \hbox (131.1757pt too wide) has occurred while \output is active
+ \OT1/cmr/m/n/8 ON BAYESIAN G-COMPUTATION AND INSTRUMENTAL VARIABLES FOR DETERM
+INING EFFICACY FROM OBSERVATIONAL DATA []
+ []
+
+[7 <./RplotPaul.pdf>]) [8] (./gcomp-Draft2.aux) ) 
 Here is how much of TeX's memory you used:
- 13685 strings out of 493089
- 259957 string characters out of 6134842
- 406359 words of memory out of 5000000
- 16732 multiletter control sequences out of 15000+600000
+ 13682 strings out of 493089
+ 259925 string characters out of 6134842
+ 407392 words of memory out of 5000000
+ 16730 multiletter control sequences out of 15000+600000
  12122 words of font info for 46 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 55i,10n,54p,796b,335s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/loca
-l/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local
-/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local
-/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/
-texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/t
-exlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/tex
-live/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texli
-ve/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive
-/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2
-015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2015
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2015/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2015/texmf
--dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2015/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2015/texmf-dist
-/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2015/texmf-
-dist/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on gcomp-Draft2.pdf (8 pages, 647067 bytes).
+ 55i,13n,54p,796b,339s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2015/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2015/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2015/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2015/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2015/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2015/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2015/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2015/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2015/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2015/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmti9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/
+amsfonts/symbols/msam10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw
+/zapfding/uzdr.pfb>
+Output written on gcomp-Draft2.pdf (8 pages, 685957 bytes).
 PDF statistics:
- 343 PDF objects out of 1000 (max. 8388607)
+ 341 PDF objects out of 1000 (max. 8388607)
  251 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 28 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 23 words of extra memory for PDF output out of 10000 (max. 10000000)
 

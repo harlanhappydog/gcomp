@@ -20,6 +20,9 @@
 \setlength{\parindent}{0pt}%
 
 
+\newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+
 \usepackage{setspace}
 \usepackage{etoolbox}
 \usepackage{lipsum}
@@ -58,9 +61,11 @@ $\quad$
   \hline
  \textbf{Assumption} &   & &   \\ 
  \hline\hline
- H is an Instrumental Variable, $\theta_{6}=0$& \checkmark & \xmark &  \checkmark  \\ 
+ $H \independent Z$, $\theta_{10} = 0$ &  \checkmark &  \xmark & \checkmark \\
+   \hline
+  $(H | X, C, Z) \independent Y$, $\theta_{6}=0$& \checkmark & \xmark &  \checkmark  \\ 
  \hline
-  H has positive causal effect on X, $\theta_{2} > 0$& \checkmark & \xmark & \xmark  \\ 
+  H is correlated with X, $\theta_{2} > 0$& \checkmark & \xmark & \xmark  \\ 
  \hline
 No unknown confounders, $\theta_{7}=\theta_{8}=0$& \xmark & \checkmark & \checkmark \\ [0.5ex] 
  \hline\hline
@@ -92,14 +97,14 @@ T_{(1,1)-(0,0)} =  Pr(Y_{2}=1 | do(X_{1}=1, X_{2}=1))  -   Pr(Y_{2}=1 | do(X_{1}
 \newpage
 
 
-\begin{figure}[h!]
-\includegraphics[width=12cm]{mypic2.png}
-\caption{The two time-point model considered.  We do not suggest that this model will be adequate for all applications. However, it is sufficiently rich to provide a vehicle for investigating the consequences of preferential sampling, and for the application that is described in Section X of the paper.}
-\centering
-\end{figure}
+%\begin{figure}[h!]
+%\includegraphics[width=12cm]{mypic2.png}
+%\caption{The two time-point model considered.  We do not suggest that this model will be adequate for all applications. However, it is sufficiently rich to provide a vehicle for investigating the consequences of preferential sampling, and for the application that is described in Section X of the paper.}
+%\centering
+%\end{figure}
 
 \begin{figure}[h!]
-\includegraphics[width=9cm]{mypic1.png}
+\includegraphics[width=18cm]{modelplot.png}
 \caption{Parameters considered.}
 \centering
 \end{figure}
@@ -115,13 +120,13 @@ $\quad$
   \hline
  \textbf{Variable} & \textbf{if = 0} & \textbf{if $=$ 1}  &   & \\ 
  \hline\hline
- H & ealry & late &  Instrumental Variable & Calendar time  \\ 
+ H & early & late &  Instrumental Variable & Calendar time  \\ 
  \hline
- C & ? & ? & Known Confounder  & ?\\ 
+ C & low & high & Known Confounder  & Relapse Rate\\ 
  \hline
  Y & ill & healthy & Outcome of interest  & Disease progression\\ 
  \hline
- Z & ? & ? & Unknown additional confounder &  \\ 
+ Z &  &   & Unknown additional confounder &  \\ 
  \hline
 X & no treatment  & treatment & Intervention of interest & Treatment \\ [0.5ex] 
  \hline\hline
