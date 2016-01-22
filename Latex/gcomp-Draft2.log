@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  18 JAN 2016 11:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  22 JAN 2016 10:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -605,18 +605,18 @@ Missing character: There is no ­ in font cmr10!
 Missing character: There is no ­ in font cmr10!
 Missing character: There is no ­ in font cmr10!
  [1{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
-<modelplot.png, id=23, 516.93124pt x 387.4475pt>
-File: modelplot.png Graphic file (type png)
- <use modelplot.png>
-Package pdftex.def Info: modelplot.png used on input line 107.
-(pdftex.def)             Requested size: 512.1496pt x 383.89937pt.
+<modelplot1.png, id=23, 489.83pt x 361.35pt>
+File: modelplot1.png Graphic file (type png)
+ <use modelplot1.png>
+Package pdftex.def Info: modelplot1.png used on input line 107.
+(pdftex.def)             Requested size: 512.1496pt x 377.8242pt.
 
 Overfull \hbox (82.14497pt too wide) in paragraph at lines 107--108
  [][] 
  []
 
 
-Overfull \hbox (44.0648pt too wide) in paragraph at lines 117--153
+Overfull \hbox (25.16852pt too wide) in paragraph at lines 117--136
  [] 
  []
 
@@ -629,11 +629,11 @@ Overfull \hbox (131.1757pt too wide) has occurred while \output is active
 INING EFFICACY FROM OBSERVATIONAL DATA []
  []
 
-[3 <./modelplot.png>]
-Underfull \vbox (badness 1308) has occurred while \output is active []
+[3 <./modelplot1.png>]
+Underfull \vbox (badness 4416) has occurred while \output is active []
 
  [4]
-Overfull \hbox (32.75208pt too wide) in paragraph at lines 226--228
+Overfull \hbox (32.75208pt too wide) in paragraph at lines 209--211
 []\OT1/cmr/bx/n/10.95 Frequentist g-comp with lo-gis-tic model: $\OML/cmm/m/it/
 10.95 Pr\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 A \OT1/cmr/m/n/10.95 = 1\OMS/cm
 sy/m/n/10.95 j\OML/cmm/m/it/10.95 B \OT1/cmr/m/n/10.95 = \OML/cmm/m/it/10.95 b;
@@ -649,10 +649,10 @@ Overfull \hbox (131.1757pt too wide) has occurred while \output is active
 INING EFFICACY FROM OBSERVATIONAL DATA []
  []
 
-[5] <RplotPaul.pdf, id=37, 505.89pt x 505.89pt>
+[5] <RplotPaul.pdf, id=38, 505.89pt x 505.89pt>
 File: RplotPaul.pdf Graphic file (type pdf)
  <use RplotPaul.pdf>
-Package pdftex.def Info: RplotPaul.pdf used on input line 258.
+Package pdftex.def Info: RplotPaul.pdf used on input line 241.
 (pdftex.def)             Requested size: 341.43306pt x 341.43785pt.
 
 
@@ -667,8 +667,8 @@ INING EFFICACY FROM OBSERVATIONAL DATA []
 [7 <./RplotPaul.pdf>]) [8] (./gcomp-Draft2.aux) ) 
 Here is how much of TeX's memory you used:
  13682 strings out of 493089
- 259925 string characters out of 6134842
- 407392 words of memory out of 5000000
+ 259930 string characters out of 6134842
+ 406392 words of memory out of 5000000
  16730 multiletter control sequences out of 15000+600000
  12122 words of font info for 46 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
@@ -690,7 +690,7 @@ lic/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmti9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/
 amsfonts/symbols/msam10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw
 /zapfding/uzdr.pfb>
-Output written on gcomp-Draft2.pdf (8 pages, 685957 bytes).
+Output written on gcomp-Draft2.pdf (8 pages, 677537 bytes).
 PDF statistics:
  341 PDF objects out of 1000 (max. 8388607)
  251 compressed objects within 3 object streams

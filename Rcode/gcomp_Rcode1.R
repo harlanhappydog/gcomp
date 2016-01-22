@@ -109,7 +109,7 @@ for (i in c(1:dim(dsgn)[1])) {
         print(c(i, j))
         
         set.seed(seedlist[j])
-        
+
         H <- rbinom(n, size = 1, prob = 0.5)
         pr.h <- 0.5
         
