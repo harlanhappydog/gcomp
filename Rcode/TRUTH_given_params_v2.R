@@ -39,13 +39,8 @@ dsgn <- as.matrix(expand.grid(lvls[[1]], lvls[[2]], lvls[[3]], lvls[[4]], lvls[[
 dim(dsgn)
 
 ######################################################################## CALCULATE TRUE VALUES OF diff
-matt <- matrix(0, dim(dsgn)[1], 2)
-				pc1vec11<-NULL
-				pc2vec11<-NULL
-				py1vec11<-NULL
-				pc1vec00<-NULL
-				pc2vec00<-NULL
-				py1vec00<-NULL
+				matt <- matrix(0, dim(dsgn)[1], 2)
+
 for (i in c(1:dim(dsgn)[1])) {
 truetheta11 <- 0
 kk <- 1
@@ -76,16 +71,17 @@ individual <- matrix(0, 8, 8)
                 dd <- (as.numeric(y1i == 1) * 1 + as.numeric(y1i == 0) * ( (1/(1+exp(-(intercepty+dsgn[i, 9]*myZ + dsgn[i, 5]*c2i + dsgn[i, 3]*myX2 + dsgn[i, 8]*myH)))) ))                
 
                 individual[kk, 5:8] <- c(aa, bb, cc, dd)
-				pc1vec11<-c(pc1vec11, pc1)
-				pc2vec11<-c(pc2vec11, pc2)
-				py1vec11<-c(py1vec11, py1)				
+		
                 # Product
                 individual[kk, 4] <- aa * bb * cc * dd
-                truetheta11 <- truetheta11 + individual[kk, 4]
+                truetheta11 <- truetheta11 + individual[kk, 4]   
+
                 kk <- kk + 1
             }
         }
     }
+    
+    
     
     truetheta00<- 0
     kk <- 1
@@ -113,36 +109,28 @@ individual <- matrix(0, 8, 8)
                 cc <- as.numeric(c2i == 1) * (pc2)  + as.numeric(c2i == 0)*(1-pc2)
                 
                 # P(Y2=1|C2,X2,Y1)
-                dd <- (as.numeric(y1i == 1) * 1 + as.numeric(y1i == 0) * ( (1/(1+exp(-(intercepty + dsgn[i, 9]*myZ + dsgn[i, 5]*c2i + dsgn[i, 3]*myX2 + dsgn[i, 8]*myH)))) ))                
+                dd <- (as.numeric(y1i == 1) * 1 + as.numeric(y1i == 0) * ( (1/(1+exp(-(intercepty+dsgn[i, 9]*myZ + dsgn[i, 5]*c2i + dsgn[i, 3]*myX2 + dsgn[i, 8]*myH)))) ))                
 
                 individual[kk, 5:8] <- c(aa, bb, cc, dd)
-				pc1vec00<-c(pc1vec00, pc1)
-				pc2vec00<-c(pc2vec00, pc2)
-				py1vec00<-c(py1vec00, py1)                
+            
 
                 # Product
                 individual[kk, 4] <- aa * bb * cc * dd
                 truetheta00 <- truetheta00 + individual[kk, 4]
+                
                 kk <- kk + 1
             }
         }
     }
+  
     matt[i, ] <- c(truetheta00, truetheta11)
+    print(i/dim(dsgn)[1])
 }
 ######################################################################## 
 
 
 # Marginal probabilities of y2:
 colMeans(matt)
-
-# Marginal probabilities of c1, c2, y1:
-par(mfrow=c(3,2))
-hist(pc1vec00, xlim=c(0,1), breaks=seq(0,1,0.1))
-hist(pc1vec11, xlim=c(0,1), breaks=seq(0,1,0.1))
-hist(pc2vec00, xlim=c(0,1), breaks=seq(0,1,0.1))
-hist(pc2vec11, xlim=c(0,1), breaks=seq(0,1,0.1))
-hist(py1vec00, xlim=c(0,1), breaks=seq(0,1,0.1))
-hist(py1vec11, xlim=c(0,1), breaks=seq(0,1,0.1))
 
 diff<-round(matt[,2]-matt[,1],5)
 

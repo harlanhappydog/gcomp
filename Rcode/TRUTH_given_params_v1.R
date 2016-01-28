@@ -31,7 +31,7 @@ lvls[[10]] <- c(0)
 lvls[[11]] <- fixlev
 
 interceptc<-(0.5)  # intercept for C1 and C2
-intercepty<-(-3)   # intercept for Y1 and Y2
+intercepty<-(-2)   # intercept for Y1 and Y2
 
 
 ### factorial design
@@ -39,13 +39,13 @@ dsgn <- as.matrix(expand.grid(lvls[[1]], lvls[[2]], lvls[[3]], lvls[[4]], lvls[[
 dim(dsgn)
 
 ######################################################################## CALCULATE TRUE VALUES OF diff
-matt <- matrix(0, dim(dsgn)[1], 2)
-				pc1vec11<-NULL
-				pc2vec11<-NULL
-				py1vec11<-NULL
-				pc1vec00<-NULL
-				pc2vec00<-NULL
-				py1vec00<-NULL
+				matt <- matrix(0, dim(dsgn)[1], 2)
+				pc1vec11<-rep(0, 8*dim(dsgn)[1])
+				pc2vec11<-rep(0, 8*dim(dsgn)[1])
+				py1vec11<-rep(0, 8*dim(dsgn)[1])
+				pc1vec00<-rep(0, 8*dim(dsgn)[1])
+				pc2vec00<-rep(0, 8*dim(dsgn)[1])
+				py1vec00<-rep(0, 8*dim(dsgn)[1])
 for (i in c(1:dim(dsgn)[1])) {
 truetheta11 <- 0
 kk <- 1
@@ -82,10 +82,17 @@ individual <- matrix(0, 8, 8)
                 # Product
                 individual[kk, 4] <- aa * bb * cc * dd
                 truetheta11 <- truetheta11 + individual[kk, 4]
+
+				pc1vec11[kk]<-pc1
+				pc2vec11[kk]<-pc2
+				py1vec11[kk]<-py1	    
+
                 kk <- kk + 1
             }
         }
     }
+    
+    
     
     truetheta00<- 0
     kk <- 1
@@ -116,17 +123,21 @@ individual <- matrix(0, 8, 8)
                 dd <- (as.numeric(y1i == 1) * 1 + as.numeric(y1i == 0) * ( (1/(1+exp(-(intercepty + dsgn[i, 9]*myZ + dsgn[i, 5]*c2i + dsgn[i, 3]*myX2 + dsgn[i, 8]*myH)))) ))                
 
                 individual[kk, 5:8] <- c(aa, bb, cc, dd)
-				pc1vec00<-c(pc1vec00, pc1)
-				pc2vec00<-c(pc2vec00, pc2)
-				py1vec00<-c(py1vec00, py1)                
+            
 
                 # Product
                 individual[kk, 4] <- aa * bb * cc * dd
                 truetheta00 <- truetheta00 + individual[kk, 4]
+                
+ 				pc1vec11[kk]<-pc1
+				pc2vec11[kk]<-pc2
+				py1vec11[kk]<-py1	 
+                
                 kk <- kk + 1
             }
         }
     }
+  
     matt[i, ] <- c(truetheta00, truetheta11)
 }
 ######################################################################## 
