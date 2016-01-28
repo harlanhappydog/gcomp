@@ -1,20 +1,22 @@
 ######################################################################## Design of experiment
 lvls <- list(NA, NA, NA, NA)
 
+fixlev<-c(0, 0.25, 0.5)
+seqlev<-seq(0,3,0.6)
 
-lvls[[1]] <- c(0, 0.25)
+lvls[[1]] <- fixlev
 
-lvls[[2]] <- c(0, 0.25)
+lvls[[2]] <- fixlev
 
-lvls[[3]] <- c(0, 0.1, 0.45)
+lvls[[3]] <- seqlev
 
-lvls[[4]] <- c(0, 0.25)
+lvls[[4]] <- fixlev
 
-lvls[[5]] <- c(0, 0.25)
+lvls[[5]] <- seqlev
 
-lvls[[6]] <- c(0, 0.25)
+lvls[[6]] <-seqlev
 
-lvls[[7]] <- c(0, 0.25)
+lvls[[7]] <- fixlev
 
 lvls[[8]] <- c(0)
 
@@ -22,8 +24,14 @@ lvls[[9]] <- c(0)
 
 lvls[[10]] <- c(0)
 
+lvls[[11]] <- fixlev
+
+interceptc<-(0.5)
+intercepty<-(-3)
+
+
 ### factorial design
-dsgn <- as.matrix(expand.grid(lvls[[1]], lvls[[2]], lvls[[3]], lvls[[4]], lvls[[5]], lvls[[6]], lvls[[7]], lvls[[8]], lvls[[9]], lvls[[10]]))
+dsgn <- as.matrix(expand.grid(lvls[[1]], lvls[[2]], lvls[[3]], lvls[[4]], lvls[[5]], lvls[[6]], lvls[[7]], lvls[[8]], lvls[[9]], lvls[[10]], lvls[[11]]))
 dim(dsgn)
 
 
@@ -32,26 +40,35 @@ dim(dsgn)
 ######################################################################## CALCULATE TRUE VALUES OF THETA00 and THETA11
 matt <- matrix(0, dim(dsgn)[1], 2)
 for (i in c(1:dim(dsgn)[1])) {
-    truetheta11 <- 0
-    kk <- 1
-    individual <- matrix(0, 8, 8)
+truetheta11 <- 0
+kk <- 1
+individual <- matrix(0, 8, 8)
+ myH<-0
+ myZ<-0
+ myX1<-1
+ myX2<-1
     for (c2i in 0:1) {
         for (y1i in 0:1) {
             for (c1i in 0:1) {
                 individual[kk, 1:3] <- c(y1i, c1i, c2i)
-                # P(C1)
-                aa <- (as.numeric(c1i == 0) * (0.5) + as.numeric(c1i == 1) * (0.5))
-                # P(Y1|C1,X1)
-                bb <- as.numeric(y1i == 1) * ((1/(1+exp(-(0.5 + dsgn[i, 5]*C1 + dsgn[i, 3]*X1 + dsgn[i, 8]*H)))) ) + as.numeric(y1i == 0) * 
-                  (1 - ((1/(1+exp(-(0.5 + dsgn[i, 5]*C1i + dsgn[i, 3]*X1 + dsgn[i, 8]*H)))) ))
-                # P(C2|C1,X1)
-                cc <- as.numeric(c2i == 1) * ((1/(1+exp(-(0.5 + dsgn[i, 4]*C1 + dsgn[i, 6]*X1)))))  + as.numeric(c2i == 1)*(1-((1/(1+exp(-(0.5 + dsgn[i, 4]*C1i + dsgn[i, 6]*X1))))))
+ 
+                # P(C1=1 or =0)
+                pc1<-1/(1+exp(-(interceptc )))
+                aa <- (as.numeric(c1i == 1) * (pc1) + as.numeric(c1i == 0) * (1-pc1))
+
+                # P(Y1=1 or =0|C1,X1)
+                py1<-1/(1+exp(-(intercepty + dsgn[i, 5]*c1i + dsgn[i, 3]*myX1 + dsgn[i, 8]*myH)))
+                bb <- as.numeric(y1i == 1) * (py1) + as.numeric(y1i == 0) * (1 - py1)
+
+                # P(C2=1 or =0|C1,X1)
+                pc2<-(1/(1+exp(-(interceptc + dsgn[i, 4]*c1i + dsgn[i, 6]*myX1))))
+                cc <- as.numeric(c2i == 1) * (pc2)  + as.numeric(c2i == 0)*(1-pc2)
                 
-                # P(Y2|C2,X2,Y1)
-                dd <- (as.numeric(y1i == 1) * 1 + as.numeric(y1i == 0) * (0.2 - dsgn[i, 3] * 1 + dsgn[i, 5] * 
-                  c2i))
-                
+                # P(Y2=1|C2,X2,Y1)
+                dd <- (as.numeric(y1i == 1) * 1 + as.numeric(y1i == 0) * ( (1/(1+exp(-(intercepty+dsgn[i, 9]*myZ + dsgn[i, 5]*c2i + dsgn[i, 3]*myX2 + dsgn[i, 8]*myH)))) ))                
+
                 individual[kk, 5:8] <- c(aa, bb, cc, dd)
+
                 # Product
                 individual[kk, 4] <- aa * bb * cc * dd
                 truetheta11 <- truetheta11 + individual[kk, 4]
@@ -60,27 +77,35 @@ for (i in c(1:dim(dsgn)[1])) {
         }
     }
     
-    truetheta00 <- 0
+    truetheta00<- 0
     kk <- 1
     individual <- matrix(0, 8, 8)
+    myH<-0
+    myZ<-0
+    myX1<-0
+    myX2<-0
     for (c2i in 0:1) {
         for (y1i in 0:1) {
             for (c1i in 0:1) {
                 individual[kk, 1:3] <- c(y1i, c1i, c2i)
-                # P(C1)
-                aa <- (as.numeric(c1i == 0) * (0.75) + as.numeric(c1i == 1) * (0.25))
-                # P(Y1|C1,X1)
-                bb <- as.numeric(y1i == 1) * (0.2 - dsgn[i, 3] * 0 + dsgn[i, 5] * c1i) + as.numeric(y1i == 0) * 
-                  (1 - (0.2 - dsgn[i, 3] * 0 + dsgn[i, 5] * c1i))
-                # P(C2|C1,X1)
-                cc <- as.numeric(c2i == 1) * (as.numeric(c1i == 1) * (0.95) + as.numeric(c1i == 0) * (0.25 - dsgn[i, 
-                  4] * 0)) + as.numeric(c2i == 0) * (as.numeric(c1i == 1) * (1 - 0.95) + as.numeric(c1i == 0) * 
-                  (1 - (0.25 - dsgn[i, 4] * 0)))
-                # P(Y2|C2,X2,Y1)
-                dd <- (as.numeric(y1i == 1) * 1 + as.numeric(y1i == 0) * (0.2 - dsgn[i, 3] * 0 + dsgn[i, 5] * 
-                  c2i))
+ 
+                # P(C1=1 or =0)
+                pc1<-1/(1+exp(-(interceptc )))
+                aa <- (as.numeric(c1i == 1) * (pc1) + as.numeric(c1i == 0) * (1-pc1))
+
+                # P(Y1=1 or =0|C1,X1)
+                py1<-1/(1+exp(-(intercepty + dsgn[i, 5]*c1i + dsgn[i, 3]*myX1 + dsgn[i, 8]*myH)))
+                bb <- as.numeric(y1i == 1) * (py1) + as.numeric(y1i == 0) * (1 - py1)
+
+                # P(C2=1 or =0|C1,X1)
+                pc2<-(1/(1+exp(-(interceptc + dsgn[i, 4]*c1i + dsgn[i, 6]*myX1))))
+                cc <- as.numeric(c2i == 1) * (pc2)  + as.numeric(c2i == 0)*(1-pc2)
                 
+                # P(Y2=1|C2,X2,Y1)
+                dd <- (as.numeric(y1i == 1) * 1 + as.numeric(y1i == 0) * ( (1/(1+exp(-(intercepty + dsgn[i, 9]*myZ + dsgn[i, 5]*c2i + dsgn[i, 3]*myX2 + dsgn[i, 8]*myH)))) ))                
+
                 individual[kk, 5:8] <- c(aa, bb, cc, dd)
+
                 # Product
                 individual[kk, 4] <- aa * bb * cc * dd
                 truetheta00 <- truetheta00 + individual[kk, 4]
@@ -92,19 +117,41 @@ for (i in c(1:dim(dsgn)[1])) {
 }
 ######################################################################## 
 
+colMeans(matt)
+
+diff<-round(matt[,2]-matt[,1],5)
+
+library(ggplot2)
+
+qplot(dsgn[,3], diff,  color=as.factor(dsgn[,5]), shape=as.factor(dsgn[,6]))
+
+qplot(dsgn[,5], diff,  color=as.factor(dsgn[,3]))
+qplot(dsgn[,6], diff,  color=as.factor(dsgn[,3]))
+
+qplot(dsgn[dsgn[,5]==0,][,6], diff[dsgn[,5]==0],  color=as.factor(dsgn[dsgn[,5]==0,][,3]))
+qplot(dsgn[dsgn[,6]==0,][,5], diff[dsgn[,6]==0],  color=as.factor(dsgn[dsgn[,6]==0,][,3]))
+
+
+qplot(dsgn[dsgn[,5]!=0,][,6], diff[dsgn[,5]!=0],  color=as.factor(dsgn[dsgn[,5]!=0,][,3]))
+qplot(dsgn[dsgn[,6]!=0,][,5], diff[dsgn[,6]!=0],  color=as.factor(dsgn[dsgn[,6]!=0,][,3]))
 
 
 
+qplot(dsgn[,1], diff,  color=as.factor(dsgn[,3]), shape=as.factor(dsgn[,6]))
+qplot(dsgn[,2], diff,  color=as.factor(dsgn[,3]), shape=as.factor(dsgn[,6]))
+qplot(dsgn[,4], diff,  color=as.factor(dsgn[,3]), shape=as.factor(dsgn[,6]))
+qplot(dsgn[,7], diff,  color=as.factor(dsgn[,3]), shape=as.factor(dsgn[,6]))
+qplot(dsgn[,11], diff,  color=as.factor(dsgn[,3]), shape=as.factor(dsgn[,6]))
 
+
+######################################################################## 
+
+
+######################################################################## 
 ppp <- 1
 est <- matrix(0, dim(dsgn)[1], 2)
 kkk <- 1
 result <- matrix(0, dim(dsgn)[1], 2)
-######################################################################## 
-
-
-######################################################################## 
-
 numsim <- 100  ### number of datasets generated under each scenario
 Bayesresult <- matrix(0, dim(dsgn)[1] * numsim, 8)
 n <- 1000  ### size of each dataset
@@ -128,7 +175,7 @@ for (i in c(1:dim(dsgn)[1])) {
         Y1 <-rbinom(n, 1, (1/(1+exp(-(0.5 + dsgn[i, 5]*C1 + dsgn[i, 3]*X1 + dsgn[i, 8]*H)))) ) 
         X2 <-rbinom(n, 1, (1/(1+exp(-(0.5 + dsgn[i, 1]*C2  + dsgn[i, 2]*H + dsgn[i, 7]*Y1 + dsgn[i, 9]*Z + dsgn[i, 11]*X1)))) )
         Y2 <- rep(1, n)  
-        Y2[Y1 == 0]<-rbinom(n, 1, (1/(1+exp(-(0.5 + dsgn[i, 9]*Z + dsgn[i, 5]*C2 + dsgn[i, 3]*X2 + dsgn[i, 8]*H)))) )[Y1 == 1]        
+        Y2[Y1 == 0]<-rbinom(n, 1, (1/(1+exp(-(0.5 + dsgn[i, 9]*Z + dsgn[i, 5]*C2 + dsgn[i, 3]*X2 + dsgn[i, 8]*H)))) )     
         simdata <- data.frame(H,Z,C1,X1,C2,Y1,X2,Y2)
         print(head(simdata))
 
