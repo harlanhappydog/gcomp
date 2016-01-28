@@ -162,4 +162,10 @@ qplot(dsgn[,7], diff,  color=as.factor(dsgn[,3]), shape=as.factor(dsgn[,6]))
 qplot(dsgn[,11], diff,  color=as.factor(dsgn[,3]), shape=as.factor(dsgn[,6]))
 
 
+mod1<-glm(diff~dsgn[,c(1:7,11)] + .*.*.,data=data.frame(dsgn[,c(1:7,11)]), family="binomial")
+
+names(summary(mod1))
+summary(mod1)$coefficients[summary(mod1)$coefficients[,4]<0.1,]
+
+
 ######################################################################## 
