@@ -6,7 +6,7 @@
 lvls <- list(NA)
 
 fixlev<-c(0, 0.25, 0.5)  # levels for not interesting parameters
-seqlev<-seq(0,3,0.6)  # levels for  interesting parameters
+seqlev<-seq(0,5,0.5)  # levels for  interesting parameters
 
 lvls[[1]] <- fixlev
 
@@ -139,11 +139,11 @@ library(ggplot2)
 # Plots of interest:
 
 #Theta3 has noticiable effect
-qplot(dsgn[,3], diff,  color=as.factor(dsgn[,5]), shape=as.factor(dsgn[,6]))
+qplot(dsgn[,3]+(dsgn[,6])/10, diff,  color=as.factor(dsgn[,5]))
 
 # Theta5 and Theta6 also have effect
-qplot(dsgn[,5], diff,  color=as.factor(dsgn[,3]))
-qplot(dsgn[,6], diff,  color=as.factor(dsgn[,3]))
+qplot(dsgn[,5]+(dsgn[,6])/10, diff,  color=as.factor(dsgn[,3]))
+qplot(dsgn[,6]+(dsgn[,6])/10, diff,  color=as.factor(dsgn[,3]))
 
 #However, theta6 only has effect if Theta5!=0
 qplot(dsgn[dsgn[,5]==0,][,6], diff[dsgn[,5]==0],  color=as.factor(dsgn[dsgn[,5]==0,][,3]))
@@ -163,8 +163,7 @@ qplot(dsgn[,11], diff,  color=as.factor(dsgn[,3]), shape=as.factor(dsgn[,6]))
 
 
 mod1<-glm(diff~dsgn[,c(1:7,11)] + .*.*.,data=data.frame(dsgn[,c(1:7,11)]), family="binomial")
-
-names(summary(mod1))
+summary(mod1)
 summary(mod1)$coefficients[summary(mod1)$coefficients[,4]<0.1,]
 
 
