@@ -6,15 +6,16 @@
 lvls <- list(NA)
 
 fixlev<-c(0, 0.25, 0.5)  # levels for not interesting parameters
-seqlev<-seq(0,5,0.5)  # levels for  interesting parameters
+#seqlev<-round(seq(0,4,0.3333),3)  # levels for  interesting parameters
+seqlev<-c(0,0.5,1,2) # levels for  interesting parameters
 
 lvls[[1]] <- fixlev
 
 lvls[[2]] <- fixlev
 
-lvls[[3]] <- seqlev
+lvls[[3]] <- c(0,0.25,0.75,1) 
 
-lvls[[4]] <- fixlev
+lvls[[4]] <- seqlev 
 
 lvls[[5]] <- seqlev
 
@@ -30,8 +31,8 @@ lvls[[10]] <- c(0)
 
 lvls[[11]] <- fixlev
 
-interceptc<-(0.5)  # intercept for C1 and C2
-intercepty<-(-2)   # intercept for Y1 and Y2
+interceptc<-(0)  # intercept for C1 and C2
+intercepty<-(-1.5)   # intercept for Y1 and Y2
 
 
 ### factorial design
@@ -128,22 +129,27 @@ individual <- matrix(0, 8, 8)
 }
 ######################################################################## 
 
-
+library(ggplot2)
 # Marginal probabilities of y2:
 colMeans(matt)
 
 diff<-round(matt[,2]-matt[,1],5)
+summary(diff)
 
-library(ggplot2)
+qplot(matt[,2],matt[,1],  color=as.factor(dsgn[,5]), ylim=c(0,1), xlim=c(0,1))+geom_abline(slope=1,intercept=0)
+qplot(matt[,2],matt[,1],  color=as.factor(dsgn[,3]), ylim=c(0,1), xlim=c(0,1))+geom_abline(slope=1,intercept=0)
 
 # Plots of interest:
 
 #Theta3 has noticiable effect
-qplot(dsgn[,3]+(dsgn[,6])/10, diff,  color=as.factor(dsgn[,5]))
+qplot(dsgn[,3]+(dsgn[,6])/20, diff,  color=as.factor(dsgn[,5]), shape=as.factor(dsgn[,4]))
 
 # Theta5 and Theta6 also have effect
-qplot(dsgn[,5]+(dsgn[,6])/10, diff,  color=as.factor(dsgn[,3]))
-qplot(dsgn[,6]+(dsgn[,6])/10, diff,  color=as.factor(dsgn[,3]))
+qplot(dsgn[,5]+(dsgn[,6])/20, diff,  color=as.factor(dsgn[,3]), shape=as.factor(dsgn[,4]))
+qplot(dsgn[,6]+(dsgn[,5])/20, diff,  color=as.factor(dsgn[,3]), shape=as.factor(dsgn[,4]))
+
+######################################################################
+
 
 #However, theta6 only has effect if Theta5!=0
 qplot(dsgn[dsgn[,5]==0,][,6], diff[dsgn[,5]==0],  color=as.factor(dsgn[dsgn[,5]==0,][,3]))

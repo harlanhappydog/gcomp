@@ -1,4 +1,7 @@
 \documentclass[11pt]{amsart}
+
+\usepackage{xcolor}
+\usepackage{tcolorbox}
 \usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
 \geometry{letterpaper}                   % ... or a4paper or a5paper or ... 
 %\geometry{landscape}                % Activate for for rotated page geometry
@@ -30,6 +33,15 @@
 \AtBeginEnvironment{tabular}{\doublespacing}
 \begin{document}
 \maketitle
+
+\begin{itemize}
+\item{Is Power pathway dependent?}
+\item{What are the minimum requirements for IV to have substantial power?}
+\item{conditioning on H vs. not conditioning on H?}
+\item{Combined tests?}
+\end{itemize}
+
+
 \section{Introduction}
 \nocite{*}
 Clinical trials are often not practical for long­-term outcomes.  As such, researchers must consider observational data for determining the effect (or lack of effect) of a given intervention, $X$, on a given outcome, $Y$. 
@@ -43,7 +55,7 @@ Two main obstacles with the analysis of time-varying observational data are:
 
 One strategy is to apply $g$-computation, as described in Borsi (2012) \cite{borsi2012estimating} .  Another, seemingly cruder strategy, would involve treating calendar period of reaching eligibility for treatment as an instrumental variable, see Greenland (2000) \cite{greenland2000introduction}.   The theoretical properties of the $g$-computation approach have been previously examined, see Johnston et al. (2008) \cite{johnston2008use},  and applications exist, such as in the context of assessing the the effect of antiretroviral therapy on incident AIDS, see Cainn et al. (2009) \cite{cain2009effect}.   
 
-Either approach requires delicate assumptions. For $g$-­computation, one  assumes that all time-­varying confounders are measured in the data. For IV, one assumes that a chosen observed variable is indeed and ``instrumental variable''. 
+Either approach requires delicate assumptions. For $g$-­computation, one  assumes that all time-­varying confounders are measured in the data. For IV, one assumes that a chosen observed variable is indeed an ``instrumental variable''. 
 Each approach involves very strong, yet different assumptions, see Table 1.  This paper investigates the merits of each approach in terms of power to detect efficacy (or lack thereof) and robustness to violations of assumptions.
   
 \textbf{Application-}  Since they were approved 20 years ago, the proportion of MS patients taking beta­-interferons has gone up dramatically, but outcomes, as measured by time from disease onset to  disease progression, have not improved substantially over calendar time.  
@@ -105,7 +117,7 @@ T_{(1,1)-(0,0)} =  Pr(Y_{2}=1 | do(X_{1}=1, X_{2}=1))  -   Pr(Y_{2}=1 | do(X_{1}
 
 \begin{figure}[h!]
 \includegraphics[width=18cm]{modelplot1.png}
-\caption{Parameters considered.}
+\caption{Consider the variables as unfolding in the temporal order (H, C1, X1,Y1,C2,X2,Y2).}
 \centering
 \end{figure}
 
@@ -161,6 +173,55 @@ variable}
 confounders \cite{greenland2000introduction}.}
 \end{itemize}
 
+\newpage
+
+
+
+
+ \section{Methods}
+ 
+ 
+ 
+ 
+ \textbf{Frequentist g-comp with logistic model:}
+ 
+ 
+\begin{tcolorbox}
+
+\begin{enumerate}
+\item{  Fit a regression model: $Y_{2} \sim H$}
+\item{ Significant association ($Y_{2} \sim H$) $\Rightarrow$ Significant association ($Y_{2} \sim X$)}
+\end{enumerate}
+
+
+\end{tcolorbox}
+
+
+
+$\quad$
+
+\textbf{Bayesian g-comp with Uniform priors:}
+$Pr(A=1 | B=b, C=c) \sim Beta(1+ \sum_{i=1}^{n}1_{(A=1,B=b,C=c)}(x_{i}), 1+ \sum_{i=1}^{n}1_{(A=0,B=b,C=c)(x_{i})})$
+
+$f(x) = \frac{\Gamma(a+b)}{(\Gamma(a)\Gamma(b))}x^{(a-1)}(1-x)^{(b-1)}$
+
+\begin{tcolorbox}
+
+\begin{enumerate}
+\item{ Obtain a sample from the posterior distribution $\gamma$.}
+\item{ By summation (integration), use samples of $\gamma$ to obtain samples from the posterior distribution of $ Pr(Y_{2}=1 | do(X_{1}=x_{1}, X_{2}=x_{2}))$}
+\item{Calculate posterior predictive $p$-value.}
+\end{enumerate}
+
+
+\end{tcolorbox}
+
+
+$\quad$
+
+
+
+\section{4 $g$-computation models}
 
 \textbf{With $Y_1$, without $H$:}
 
@@ -188,7 +249,7 @@ confounders \cite{greenland2000introduction}.}
   Pr(Y_{2}=1 | do(X_{1}=x_{1}, X_{2}=x_{2})) & =  \sum_{c_{1}=0}^{1} \sum_{c_{2}=0}^{1}
  Pr(C_{1}=c_{1}) \\
  &\cdot   Pr(C_{2}=c_{2} | C_{1}=c_{1}, X_{1}=x_{1}) \\
- &\cdot   Pr(Y_{2}=1 | C_{2}=c_{2}, X_{2}=x_{2})
+ &\cdot   Pr(Y_{2}=1 | C_{2}=c_{2},C_{1}=c_{1}, X_{2}=x_{2}, X_{1}=x_{1})
 \end{align*}
 
 \textbf{Without $Y_1$, with $H$:}
@@ -197,24 +258,8 @@ confounders \cite{greenland2000introduction}.}
   Pr(Y_{2}=1 | do(X_{1}=x_{1}, X_{2}=x_{2})) & =  \sum_{c_{1}=0}^{1} \sum_{c_{2}=0}^{1} \sum_{h=0}^{1}
  Pr(H=h) \cdot Pr(C_{1}=c_{1} | H=h) \\
  &\cdot   Pr(C_{2}=c_{2} | C_{1}=c_{1}, X_{1}=x_{1}, H=h) \\
- &\cdot   Pr(Y_{2}=1 | C_{2}=c_{2}, X_{2}=x_{2}, H=h)
+ &\cdot   Pr(Y_{2}=1 | C_{2}=c_{2}, X_{2}=x_{2}, C_{1}=c_{1}, X_{1}=x_{1}, H=h)
 \end{align*}
-
-
-
-
- \section{Methods}
- 
- 
- \textbf{Frequentist g-comp with logistic model:}
-$Pr(A=1 | B=b, C=c) = predict(logistic(Pr(A=1 | B=b, C=c)))$
-
-$\quad$
-
-\textbf{Bayesian g-comp with Uniform priors:}
-$Pr(A=1 | B=b, C=c) \sim Beta(1+ \sum_{i=1}^{n}1_{(A=1,B=b,C=c)}(x_{i}), 1+ \sum_{i=1}^{n}1_{(A=0,B=b,C=c)(x_{i})})$
-
-$\quad$
 
  
 - run down of the simple sandbox of two time-points, everything binary 
