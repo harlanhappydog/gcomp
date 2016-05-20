@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  31 MAR 2016 09:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  18 MAY 2016 11:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -547,7 +547,10 @@ File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.0 (rcs-revision 1.2)
-)))
+))) (./bibspacing.sty
+\bibitemsep=\skip51
+\bibparskip=\skip52
+)
 (/usr/local/texlive/2015/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2011/12/19 v6.7a set line spacing
 )
@@ -555,27 +558,30 @@ Package: setspace 2011/12/19 v6.7a set line spacing
 Package: lipsum 2014/07/27 v1.3 150 paragraphs of Lorem Ipsum dummy text
 \c@lips@count=\count125
 )
-(./gcomp-Draft2.aux)
+(./gcomp-Draft2.aux
+
+LaTeX Warning: Label `default' multiply defined.
+
+)
 \openout1 = `gcomp-Draft2.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Try loading font information for U+msa on input line 34.
-
-(/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Try loading font information for U+msa on input line 38.
+ (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 34.
+LaTeX Font Info:    Try loading font information for U+msb on input line 38.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -628,84 +634,137 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Missing character: There is no ­ in font cmr10!
-Missing character: There is no ­ in font cmr10!
-Missing character: There is no ­ in font cmr10!
+
+Overfull \hbox (4.21161pt too wide) in paragraph at lines 88--89
+[]\OT1/cmr/m/n/10.95 Lee [[]] [[]] con-sid-ers In-stru-men-tal Vari-able (IV) a
+nal-y-sis as an al-ter-na-tive to $\OML/cmm/m/it/10.95 g$\OT1/cmr/m/n/10.95 -co
+mputation
+ []
+
+<figure1.png, id=4, 244.915pt x 198.7425pt>
+File: figure1.png Graphic file (type png)
+ <use figure1.png>
+Package pdftex.def Info: figure1.png used on input line 91.
+(pdftex.def)             Requested size: 227.62204pt x 184.71336pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Overfull \hbox (37.01341pt too wide) in paragraph at lines 95--96
+[]\OT1/cmr/m/n/10.95 http://andrewgelman.com/2015/03/20/bayesian-models-causal-
+inference-time-varying-exposures/ 
+ []
+
 [1{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+
+LaTeX Warning: Citation `chen2011comparative' on page 2 undefined on input line
+ 117.
+
+
+Underfull \vbox (badness 8189) has occurred while \output is active []
+
+ [2 <./figure1.png>]
+Missing character: There is no ­ in font cmr10!
+
+
+LaTeX Warning: Citation `robins1999estimation' on page 3 undefined on input lin
+e 125.
+
+Missing character: There is no á in font cmr10!
+Missing character: There is no ­ in font cmr10!
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [3]
 Missing character: There is no ­ in font cmr10!
 Missing character: There is no ­ in font cmr10!
 
-[2] <modelplot1.png, id=23, 489.83pt x 361.35pt>
+[4]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [5]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [6]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [7]
+[8]
+Overfull \hbox (3.0076pt too wide) in paragraph at lines 293--294
+[]\OT1/cmr/m/n/10.95 We im-ple-mented two es-ti-ma-tors of history-restricted m
+ar-ginal struc-tural mod-els (HRMSMs)
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [9]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[10] <modelplot1.png, id=50, 489.83pt x 361.35pt>
 File: modelplot1.png Graphic file (type png)
  <use modelplot1.png>
-Package pdftex.def Info: modelplot1.png used on input line 119.
+Package pdftex.def Info: modelplot1.png used on input line 357.
 (pdftex.def)             Requested size: 512.1496pt x 377.8242pt.
 
-Overfull \hbox (82.14497pt too wide) in paragraph at lines 119--120
+Overfull \hbox (82.14497pt too wide) in paragraph at lines 357--358
  [][] 
  []
 
 
-Overfull \hbox (25.16852pt too wide) in paragraph at lines 129--148
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Overfull \hbox (25.16852pt too wide) in paragraph at lines 367--386
  [] 
  []
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Overfull \hbox (131.1757pt too wide) has occurred while \output is active
- \OT1/cmr/m/n/8 ON BAYESIAN G-COMPUTATION AND INSTRUMENTAL VARIABLES FOR DETERM
-INING EFFICACY FROM OBSERVATIONAL DATA []
- []
-
-[3 <./modelplot1.png>] [4]
-Overfull \hbox (131.1757pt too wide) has occurred while \output is active
- \OT1/cmr/m/n/8 ON BAYESIAN G-COMPUTATION AND INSTRUMENTAL VARIABLES FOR DETERM
-INING EFFICACY FROM OBSERVATIONAL DATA []
- []
-
-[5] <RplotPaul.pdf, id=38, 505.89pt x 505.89pt>
+[11] [12 <./modelplot1.png>] [13] [14]
+<RplotPaul.pdf, id=70, 505.89pt x 505.89pt>
 File: RplotPaul.pdf Graphic file (type pdf)
  <use RplotPaul.pdf>
-Package pdftex.def Info: RplotPaul.pdf used on input line 286.
+Package pdftex.def Info: RplotPaul.pdf used on input line 524.
 (pdftex.def)             Requested size: 341.43306pt x 341.43785pt.
- [6]
-Overfull \hbox (131.1757pt too wide) has occurred while \output is active
- \OT1/cmr/m/n/8 ON BAYESIAN G-COMPUTATION AND INSTRUMENTAL VARIABLES FOR DETERM
-INING EFFICACY FROM OBSERVATIONAL DATA []
- []
+ [15] [16 <./RplotPaul.pdf>] (./gcomp-Draft2.bbl [17] [18] [19]) [20] (./gcomp-
+Draft2.aux)
 
-[7 <./RplotPaul.pdf>] (./gcomp-Draft2.bbl) [8] (./gcomp-Draft2.aux) ) 
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 15186 strings out of 493089
- 298553 string characters out of 6134842
- 442775 words of memory out of 5000000
- 18218 multiletter control sequences out of 15000+600000
- 12122 words of font info for 46 fonts, out of 8000000 for 9000
+ 15240 strings out of 493089
+ 299543 string characters out of 6134842
+ 443940 words of memory out of 5000000
+ 18267 multiletter control sequences out of 15000+600000
+ 12769 words of font info for 48 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 54i,13n,73p,915b,406s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/loca
-l/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local
-/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local
-/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/
-texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/t
-exlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/tex
-live/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texli
-ve/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive
-/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2
-015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2015
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2015/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2015/texmf
--dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2015/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2015/texmf-dist
-/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2015/texmf-
-dist/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on gcomp-Draft2.pdf (8 pages, 680563 bytes).
+ 54i,13n,73p,1120b,406s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb
+></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
+</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
+/usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></u
+sr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr
+/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/l
+ocal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loc
+al/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/
+texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/tex
+live/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texliv
+e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive
+/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2
+015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/20
+15/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2015
+/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/
+2015/texmf-dist/fonts/type1/urw/zapfding/uzdr.pfb>
+Output written on gcomp-Draft2.pdf (20 pages, 738853 bytes).
 PDF statistics:
- 341 PDF objects out of 1000 (max. 8388607)
- 251 compressed objects within 3 object streams
+ 385 PDF objects out of 1000 (max. 8388607)
+ 280 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 23 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 28 words of extra memory for PDF output out of 10000 (max. 10000000)
 

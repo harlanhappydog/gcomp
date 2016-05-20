@@ -1,0 +1,550 @@
+#######################################################################
+#######################################################################
+#######################################################################
+# Design of experiment
+lvls <- list(NA)
+
+fixlev<-c(0,0.5)  # levels for not interesting parameters
+seqlev<-c(1, 2, 3) # levels for  interesting parameters
+
+lvls[[1]] <- c(0)  # violation
+lvls[[2]] <- seqlev
+lvls[[3]] <- c(0) 
+lvls[[4]] <- 0.5
+lvls[[5]] <- seqlev
+lvls[[6]] <- 0
+lvls[[7]] <- c(0) # violation
+lvls[[8]] <- c(0)
+lvls[[9]] <- c(0)
+lvls[[10]] <- c(0)
+lvls[[11]] <- seqlev
+
+interceptc<-(0)  # intercept for C1 and C2
+intercepty<-(-1)   # intercept for Y1 and Y2
+intercepth<-(-1)  #intercept for H
+interceptz<-0.5
+interceptx<-0.5
+
+### factorial design
+dsgn <- as.matrix(expand.grid(lvls[[1]], lvls[[2]], lvls[[3]], lvls[[4]], lvls[[5]], lvls[[6]], lvls[[7]], lvls[[8]], lvls[[9]], lvls[[10]], lvls[[11]]))
+dim(dsgn)
+dim(dsgn)[1]
+
+# only null
+#dsgn<-dsgn[dsgn[,5]==0|dsgn[,6]==0,]
+diff_theta<-rep(0,dim(dsgn)[1])
+
+######################################################################## 
+### CALCULATE TRUE VALUES OF diff
+matt <- matrix(0, dim(dsgn)[1], 2)
+true_gammas<-list()
+for (i in c(1:dim(dsgn)[1])) {
+truetheta11 <- 0
+truetheta00 <- 0
+
+true_gammas[[i]]<-data.frame(expand.grid(c(0,1),c(0,1),c(0,1),c(0,1),c(0,1),c(0,1),c(1), c("H","C1","C2","Y1","Y2"), c(NA)))
+colnames(true_gammas[[i]])<-c("H","C1","C2","X1","X2","Y1","Y2", "cond", "gamma")
+
+ myH<-0
+ myZ<-0
+
+for(theta in c(0,1)){
+kk <- 1
+individual <- matrix(0, 8, 8)
+
+if(theta==0){ myX1<-myX2<-0}
+if(theta==1){ myX1<-myX2<-1}
+
+    for (c2i in 0:1) {
+        for (y1i in 0:1) {
+            for (c1i in 0:1) {
+
+                individual[kk, 1:3] <- c(y1i, c1i, c2i)
+ 
+                # P(C1=1 or =0)
+                pc1<-1/(1+exp(-(interceptc )))
+                aa <- (as.numeric(c1i == 1) * (pc1) + as.numeric(c1i == 0) * (1-pc1))
+			true_gammas[[i]][true_gammas[[i]]$cond=="C1" & true_gammas[[i]]$C1== c1i,]$gamma<-aa
+
+                # P(Y1=1 or =0|C1,X1)
+                py1<-1/(1+exp(-(intercepty + dsgn[i, 5]*c1i + dsgn[i, 3]*myX1 + dsgn[i, 8]*myH)))
+                bb <- as.numeric(y1i == 1) * (py1) + as.numeric(y1i == 0) * (1 - py1)
+			true_gammas[[i]][true_gammas[[i]]$cond=="Y1" & 
+				true_gammas[[i]]$Y1== y1i & true_gammas[[i]]$X1==myX1 & true_gammas[[i]]$C1==c1i,]$gamma<-bb
+
+                # P(C2=1 or =0|C1,X1)
+                pc2<-(1/(1+exp(-(interceptc + dsgn[i, 4]*c1i + dsgn[i, 6]*myX1))))
+                cc <- as.numeric(c2i == 1) * (pc2)  + as.numeric(c2i == 0)*(1-pc2)
+			true_gammas[[i]][true_gammas[[i]]$cond=="C2" & 
+				true_gammas[[i]]$C1== c1i & true_gammas[[i]]$C2== c2i & true_gammas[[i]]$X1== myX1,]$gamma<-cc
+
+                # P(Y2=1|C2,X2,Y1)
+                dd <- (as.numeric(y1i == 1) * 1 + as.numeric(y1i == 0) * 
+                		( (1/(1+exp(-(intercepty+dsgn[i, 9]*myZ + dsgn[i, 5]*c2i + dsgn[i, 3]*myX2 + dsgn[i, 8]*myH)))) ))                
+			true_gammas[[i]][true_gammas[[i]]$cond=="Y2" & 
+				true_gammas[[i]]$Y2== 1  & true_gammas[[i]]$C2== c2i & true_gammas[[i]]$X2== myX2 & 
+								true_gammas[[i]]$Y1== y1i,]$gamma<-dd
+                individual[kk, 5:8] <- c(aa, bb, cc, dd)
+		
+                # Product	
+                individual[kk, 4] <- aa * bb * cc * dd
+	     if(theta==1){  truetheta11 <- truetheta11 + individual[kk, 4]   }
+	     if(theta==1){  truetheta00 <- truetheta00 + individual[kk, 4]   }
+                kk <- kk + 1
+            }
+        }
+    }
+
+      
+    matt[i, ] <- c(truetheta00, truetheta11)}
+
+# For H marginals
+for (h1i in 0:1) {
+       # P(H=1 or =0)
+                ph1<-1/(1+exp(-(intercepth )))
+                hh <- (as.numeric(h1i == 1) * (ph1) + as.numeric(h1i == 0) * (1-ph1))
+true_gammas[[i]][true_gammas[[i]]$cond=="H" & true_gammas[[i]]$H== h1i,]$gamma<-hh
+}
+}
+
+diff_theta<-round(matt[,2]-matt[,1],5)
+
+# confirming that every event has a plaussible chance of occuring:
+for(i in 1:dim(dsgn)[1]) {
+	print(dim(true_gammas[[i]][true_gammas[[i]]$gamma>0.95 | true_gammas[[i]]$gamma<0.05,])[1]-32)
+	if((dim(true_gammas[[i]][true_gammas[[i]]$gamma>0.95 | true_gammas[[i]]$gamma<0.05,])[1]-32)>0){print(dsgn[i,])}
+	}
+
+
+
+######################################################################## 
+# Functions
+######################################################################## 
+
+C2probB <- function(h=c(0,1), c2=c(1), c1=c(0,1), x1=c(0,1), nm = 1) {
+            ss <- sum(simdata$C2[simdata$H %in% h & simdata$C1 %in% c1 & simdata$X1 %in% x1])
+            nn <- length(simdata$C2[simdata$H %in% h & simdata$C1 %in% c1 & simdata$X1 %in% x1])
+            pp <- (rbeta(nm, (ss + 1), (nn - ss + 1)))
+            if (c2 %in% 0) {return(1 - as.numeric(pp))}
+            if (c2 %in% 1) {return(as.numeric(pp))}}	
+            
+Y2probB<-function(h=c(0,1), y2=c(1),c2=c(0,1),x2=c(0,1),y1=c(0,1), c1=c(0,1), x1=c(0,1), nm=1){
+		ss<-sum(simdata$Y2[simdata$H %in%  h &
+			 simdata$C2%in% c2 & simdata$X2%in% x2 &
+			  simdata$Y1%in% y1 & simdata$C1%in% c1 & simdata$X1%in% x1])
+		nn<-length(simdata$Y2[simdata$H %in% h &
+			 simdata$C2%in% c2 & simdata$X2%in% x2 &
+			  simdata$Y1%in% y1  & simdata$C1%in% c1 & simdata$X1%in% x1])
+			pp<-(rbeta(nm,(ss+1),(nn-ss+1)))
+			if(y2%in%0){return(1-as.numeric(pp))}
+			if(y2%in%1){return(as.numeric(pp))}}
+			
+			
+Y1probB<-function(h=c(0,1), y1=1,c1=c(0,1),x1=c(0,1),nm=1){
+			ss<-sum(simdata$Y1[simdata$H %in% h & simdata$X1%in%x1 & simdata$C1%in%c1])
+			nn<-length(simdata$Y1[simdata$H %in% h & simdata$X1%in%x1 & simdata$C1%in%c1])
+			pp<-(rbeta(nm,(ss+1),(nn-ss+1)))
+			if(y1%in%0){return(1-as.numeric(pp))}
+			if(y1%in%1){return(as.numeric(pp))}}
+			
+			
+C1probB <- function(h=c(0,1), c1=1, nm = 1) {
+            ss <- sum(simdata$C1[simdata$H %in% h])
+            nn <- length(simdata$C1[simdata$H %in% h])
+            pp <- (rbeta(nm, (ss + 1), (nn - ss + 1)))
+            if (c1 %in% 0) {return(1 - as.numeric(pp))}
+            if (c1 %in% 1) {return(as.numeric(pp))}}            
+            
+            
+HprobB <- function(h=1, nm = 1) {
+            ss <- sum(simdata$H)
+            nn <- length(simdata$H)
+            pp <- (rbeta(nm, (ss + 1), (nn - ss + 1)))
+            if (h == 0) {return(1 - as.numeric(pp))}
+            if (h == 1) {return(as.numeric(pp))}}
+
+
+
+######################################################################## 
+# SIMULATIONS STUDY
+######################################################################## 
+######################################################################## 
+ppp <- 1
+kkk <- 1
+est <- matrix(0, dim(dsgn)[1], 2)
+result <- matrix(0, dim(dsgn)[1], 2)
+numsim <- 100												### number of datasets generated under each scenario
+n <- 10000														### size of each dataset
+set.seed(13)  													### for reproducibility
+nB<-45													### number of MC samples
+Bayesresult <- matrix(0, dim(dsgn)[1] * numsim, 8)
+
+######################################################################## 
+simdatasum<-matrix(0,dim(dsgn)[1],8)
+colnames(simdatasum)<-c( "H",     "Z",    "C1",    "X1",    "C2",    "Y1",    "X2",    "Y2") 
+
+my_gammas_wY1_wH<-list()
+my_gammas_wY1_H<-list()
+my_gammas_Y1_wH<-list()
+my_gammas_Y1_H<-list()
+
+
+for (i in c(1:dim(dsgn)[1])) {
+
+#for (i in 1) {
+	
+my_gammas_wY1_wH[[i]]<-matrix(0, dim(true_gammas[[1]])[1],numsim)
+my_gammas_wY1_H[[i]]<-matrix(0, dim(true_gammas[[1]])[1],numsim)
+my_gammas_Y1_wH[[i]]<-matrix(0, dim(true_gammas[[1]])[1],numsim)
+my_gammas_Y1_H[[i]]<-matrix(0, dim(true_gammas[[1]])[1],numsim)
+
+	for (j in 1:numsim) {   ### loop over datasets
+       print(c(i, j))
+	print(kkk/(dim(dsgn)[1] * numsim))
+
+	  H <- rbinom(n, size = 1, prob = (1/(1+exp(-(intercepth)))) )
+        Z  <- rbinom(n, 1, (1/(1+exp(-(interceptz + dsgn[i, 10]*H)))) )
+        C1 <- rbinom(n, size = 1, prob = (1/(1+exp(-(interceptc)))) )
+        X1<- rbinom(n, 1, (1/(1+exp(-(interceptx + dsgn[i, 1]*C1 + dsgn[i, 2]*H)))) ) 
+        C2 <-rbinom(n, 1, (1/(1+exp(-(interceptc + dsgn[i, 4]*C1 + dsgn[i, 6]*X1)))) )         
+        Y1 <-rbinom(n, 1, (1/(1+exp(-(intercepty + dsgn[i, 5]*C1 + dsgn[i, 3]*X1 + dsgn[i, 8]*H)))) ) 
+        X2 <-rbinom(n, 1, (1/(1+exp(-(interceptx + dsgn[i, 1]*C2  + dsgn[i, 2]*H + dsgn[i, 7]*Y1 + dsgn[i, 9]*Z + dsgn[i, 11]*X1)))) )
+        Y2<-rbinom(n, 1, (1/(1+exp(-(intercepty + dsgn[i, 9]*Z + dsgn[i, 5]*C2 + dsgn[i, 3]*X2 + dsgn[i, 8]*H)))) )     
+        Y2[Y1 == 1]<-1
+ 
+        simdata <- data.frame(H,Z,C1,X1,C2,Y1,X2,Y2)
+	  simdatasum[i,]<-colMeans(simdata)
+######################################################################## 
+print("BAYESIAN APPROACH:  WITHOUT Y1, WITHOUT H (uniform priors):")
+sumtheta11Bvec<-rep(0,nB)
+sumtheta00Bvec<-rep(0,nB)
+
+gammas_wY1_wH<-data.frame(expand.grid(c(0,1),c(0,1),c(0,1),c(0,1),c(0,1),c(0,1),c(1), c("H","C1","C2","Y1","Y2"), c(NA)))
+colnames(gammas_wY1_wH)<-c("H","C1","C2","X1","X2","Y1","Y2", "cond", "gamma")
+
+## Start of MC
+gammas<-matrix(0,dim(gammas_wY1_wH)[1], nB)  
+for(sw in 1:nB){
+y2i<-1
+ for (x2i in 0:1) {
+  x1i <-x2i
+      for (c2i in 0:1) {
+            for (c1i in 0:1) {
+
+gammas_wY1_wH[gammas_wY1_wH$cond=="C1" & gammas_wY1_wH$C1== c1i,]$gamma<-C1probB(c1=c1i)
+
+gammas_wY1_wH[gammas_wY1_wH$cond=="C2" & gammas_wY1_wH$C1== c1i & gammas_wY1_wH$C2== c2i &
+ gammas_wY1_wH$X1== x1i,]$gamma<-C2probB(c1=c1i,c2=c2i,x1=x1i)
+
+gammas_wY1_wH[gammas_wY1_wH$cond=="Y2" & gammas_wY1_wH$C1== c1i & gammas_wY1_wH$C2== c2i &
+ gammas_wY1_wH$X1== x1i  & gammas_wY1_wH$X2== x2i  & gammas_wY1_wH$Y2== y2i,]$gamma<-Y2probB(y2=y2i, c1=c1i, c2=c2i, x1=x1i, x2=x2i)
+
+		}
+	}
+}
+
+  sumtheta11B <- 0
+  sumtheta00B <- 0
+        x1i<-1
+        x2i<-1
+        y2i<-1
+    for (x1i in 0:1) {    
+		x2i<-x1i
+        for (c2i in 0:1) {
+            for (c1i in 0:1) {
+
+if(x1i==1){    sumtheta11B <- sumtheta11B + 
+unique(gammas_wY1_wH[gammas_wY1_wH$cond=="C1" & gammas_wY1_wH$C1== c1i,]$gamma*
+gammas_wY1_wH[gammas_wY1_wH$cond=="C2" & gammas_wY1_wH$C1== c1i & gammas_wY1_wH$C2== c2i & gammas_wY1_wH$X1== x1i,]$gamma*
+gammas_wY1_wH[gammas_wY1_wH$cond=="Y2" & gammas_wY1_wH$C1== c1i & gammas_wY1_wH$C2== c2i & gammas_wY1_wH$X1== x1i  & gammas_wY1_wH$X2== x2i  & gammas_wY1_wH$Y2== y2i,]$gamma)}
+
+if(x1i==0){    sumtheta00B <- sumtheta00B + 
+unique(gammas_wY1_wH[gammas_wY1_wH$cond=="C1" & gammas_wY1_wH$C1== c1i,]$gamma*
+gammas_wY1_wH[gammas_wY1_wH$cond=="C2" & gammas_wY1_wH$C1== c1i & gammas_wY1_wH$C2== c2i & gammas_wY1_wH$X1== x1i,]$gamma*
+gammas_wY1_wH[gammas_wY1_wH$cond=="Y2" & gammas_wY1_wH$C1== c1i & gammas_wY1_wH$C2== c2i & gammas_wY1_wH$X1== x1i  & gammas_wY1_wH$X2== x2i  & gammas_wY1_wH$Y2== y2i,]$gamma)}
+
+		}
+	}
+}
+
+sumtheta11Bvec[sw]<-sumtheta11B
+sumtheta00Bvec[sw]<-sumtheta00B
+gammas[,sw]<-gammas_wY1_wH$gamma } ## End of MC
+
+	  my_gammas_wY1_wH[[i]][,j]<-rowMeans(gammas[,1:nB])   
+        sumtheta00Bvec_wY1_wH <- sumtheta00Bvec
+        sumtheta11Bvec_wY1_wH <- sumtheta11Bvec
+
+#################################################################
+print("BAYESIAN APPROACH WITH Y1, WITHOUT H (uniform priors):")
+sumtheta11Bvec<-rep(0,nB)
+sumtheta00Bvec<-rep(0,nB)
+
+gammas_Y1_wH<-data.frame(expand.grid(c(0,1),c(0,1),c(0,1),c(0,1),c(0,1),c(0,1),c(1), c("H","C1","C2","Y1","Y2"), c(NA)))
+colnames(gammas_Y1_wH)<-c("H","C1","C2","X1","X2","Y1","Y2", "cond", "gamma")
+gammas<-matrix(0,dim(gammas_Y1_wH)[1], nB)
+
+## Start of MC
+for(sw in 1:nB){
+
+y2i<-1
+ for (x2i in 0:1) {
+x1i<-x2i
+    for (y1i in 0:1) {
+      for (c2i in 0:1) {
+            for (c1i in 0:1) {
+gammas_Y1_wH[gammas_Y1_wH$cond=="C1" & gammas_Y1_wH$C1== c1i,]$gamma<-C1probB(c1=c1i)	
+gammas_Y1_wH[gammas_Y1_wH$cond=="Y1" & gammas_Y1_wH$Y1== y1i  & gammas_Y1_wH$C1== c1i  & gammas_Y1_wH$X1== x1i,]$gamma<-Y1probB(y1=y1i, c1=c1i, x1=x1i)
+gammas_Y1_wH[gammas_Y1_wH$cond=="C2" & gammas_Y1_wH$C2== c2i  & gammas_Y1_wH$C1== c1i  & gammas_Y1_wH$X1== x1i,]$gamma<-C2probB(c2=c2i, c1=c1i, x1=x1i)
+gammas_Y1_wH[gammas_Y1_wH$cond=="Y2" & gammas_Y1_wH$Y2== y2i  & gammas_Y1_wH$C2== c2i  & gammas_Y1_wH$X2== x2i  & gammas_Y1_wH$Y1== y1i,]$gamma<-Y2probB(y2=y2i, c2=c2i, x2=x2i, y1=y1i)
+}}}}
+
+
+sumtheta11B<-0
+sumtheta00B<-0
+y2i<-1
+
+for(x1i in 0:1){        
+            x2i<-x1i
+	for(c2i in 0:1){
+		for(y1i in 0:1){
+			for(c1i in 0:1){
+	
+if(x1i==1){
+sumtheta11B<-sumtheta11B+
+unique(gammas_Y1_wH[gammas_Y1_wH$cond=="C1" & gammas_Y1_wH$C1== c1i,]$gamma*
+gammas_Y1_wH[gammas_Y1_wH$cond=="Y1" & gammas_Y1_wH$Y1== y1i  & gammas_Y1_wH$C1== c1i  & gammas_Y1_wH$X1== x1i,]$gamma*
+gammas_Y1_wH[gammas_Y1_wH$cond=="C2" & gammas_Y1_wH$C2== c2i  & gammas_Y1_wH$C1== c1i  & gammas_Y1_wH$X1== x1i,]$gamma*
+gammas_Y1_wH[gammas_Y1_wH$cond=="Y2" & gammas_Y1_wH$Y2== y2i  & gammas_Y1_wH$C2== c2i  & gammas_Y1_wH$X2== x2i  & gammas_Y1_wH$Y1== y1i,]$gamma)
+}
+
+if(x1i==0){
+sumtheta00B<-sumtheta00B+
+unique(gammas_Y1_wH[gammas_Y1_wH$cond=="C1" & gammas_Y1_wH$C1== c1i,]$gamma*
+gammas_Y1_wH[gammas_Y1_wH$cond=="Y1" & gammas_Y1_wH$Y1== y1i  & gammas_Y1_wH$C1== c1i  & gammas_Y1_wH$X1== x1i,]$gamma*
+gammas_Y1_wH[gammas_Y1_wH$cond=="C2" & gammas_Y1_wH$C2== c2i  & gammas_Y1_wH$C1== c1i  & gammas_Y1_wH$X1== x1i,]$gamma*
+gammas_Y1_wH[gammas_Y1_wH$cond=="Y2" & gammas_Y1_wH$Y2== y2i  & gammas_Y1_wH$C2== c2i  & gammas_Y1_wH$X2== x2i  & gammas_Y1_wH$Y1== y1i,]$gamma)
+}
+}}}}
+
+sumtheta11Bvec[sw]<-sumtheta11B
+sumtheta00Bvec[sw]<-sumtheta00B
+gammas[,sw]<-gammas_Y1_wH$gamma} ## End of MC
+
+	my_gammas_Y1_wH[[i]][,j]<-rowMeans(gammas[,1:nB])   
+        sumtheta00Bvec_Y1_wH <- sumtheta00Bvec
+        sumtheta11Bvec_Y1_wH <- sumtheta11Bvec
+
+Bpval_Y1_wH <- 1 - mean((sumtheta11Bvec_Y1_wH - sumtheta00Bvec_Y1_wH) > 0)
+
+######################################################################### 
+print("BAYESIAN APPROACH WITHOUT Y1 WITH H  (uniform priors):")
+sumtheta11Bvec<-rep(0,nB)
+sumtheta00Bvec<-rep(0,nB)
+
+gammas_wY1_H<-data.frame(expand.grid(c(0,1),c(0,1),c(0,1),c(0,1),c(0,1),c(0,1),c(1), c("H","C1","C2","Y1","Y2"), c(NA)))
+colnames(gammas_wY1_H)<-c("H","C1","C2","X1","X2","Y1","Y2", "cond", "gamma")
+gammas<-matrix(0,dim(gammas_wY1_H)[1], nB)         
+               
+## Start of MC                     
+for(sw in 1:nB){
+	
+y2i<-1
+ for (x2i in 0:1) {
+x1i<-x2i
+    for (h1i in 0:1) {
+      for (c2i in 0:1) {
+            for (c1i in 0:1) {
+
+gammas_wY1_H[gammas_wY1_H$cond=="H" & gammas_wY1_H$H== h1i,]$gamma<-HprobB(h1i)	           
+
+gammas_wY1_H[gammas_wY1_H$cond=="C1" & gammas_wY1_H$C1== c1i & gammas_wY1_H$H== h1i,]$gamma<-C1probB(h=h1i ,c1=c1i)	
+        
+gammas_wY1_H[gammas_wY1_H$cond=="C2" & gammas_wY1_H$H== h1i & gammas_wY1_H$C2== c2i  & gammas_wY1_H$C1== c1i  & gammas_wY1_H$X1== x1i,]$gamma<-C2probB(h=h1i, c2=c2i, c1=c1i, x1=x1i)
+        
+ gammas_wY1_H[gammas_wY1_H$cond=="Y2" & gammas_wY1_H$H== h1i  & gammas_wY1_H$Y2== y2i & gammas_wY1_H$C1== c1i   & gammas_wY1_H$C2== c2i  & gammas_wY1_H$X2== x2i  & gammas_wY1_H$X1== x1i,]$gamma<-Y2probB(h=h1i, y2=y2i, c1=c1i, c2=c2i, x1=x1i, x2=x2i)       
+ }}}}
+
+sumtheta11B<-0
+sumtheta00B<-0
+ y2i<-1
+        
+for(x1i in 0:1){        
+        x2i<-x1i 
+for(c2i in 0:1){
+for(h1i in 0:1){
+for(c1i in 0:1){
+                  
+if(x1i==1){ sumtheta11B<-sumtheta11B+
+unique(gammas_wY1_H[gammas_wY1_H$cond=="H" & gammas_wY1_H$H== h1i,]$gamma*
+gammas_wY1_H[gammas_wY1_H$cond=="C1" & gammas_wY1_H$C1== c1i & gammas_wY1_H$H== h1i,]$gamma*
+ gammas_wY1_H[gammas_wY1_H$cond=="C2" & gammas_wY1_H$H== h1i & gammas_wY1_H$C2== c2i  & gammas_wY1_H$C1== c1i  & gammas_wY1_H$X1== x1i,]$gamma*
+ gammas_wY1_H[gammas_wY1_H$cond=="Y2" & gammas_wY1_H$H== h1i   & gammas_wY1_H$Y2== y2i & gammas_wY1_H$C1== c1i   & gammas_wY1_H$C2== c2i  & gammas_wY1_H$X2== x2i  & gammas_wY1_H$X1== x1i,]$gamma)
+}
+
+if(x1i==0){ sumtheta00B<-sumtheta00B+
+unique(gammas_wY1_H[gammas_wY1_H$cond=="H" & gammas_wY1_H$H== h1i,]$gamma*
+gammas_wY1_H[gammas_wY1_H$cond=="C1" & gammas_wY1_H$C1== c1i & gammas_wY1_H$H== h1i,]$gamma*
+ gammas_wY1_H[gammas_wY1_H$cond=="C2" & gammas_wY1_H$H== h1i & gammas_wY1_H$C2== c2i  & gammas_wY1_H$C1== c1i  & gammas_wY1_H$X1== x1i,]$gamma*
+ gammas_wY1_H[gammas_wY1_H$cond=="Y2" & gammas_wY1_H$H== h1i   & gammas_wY1_H$Y2== y2i & gammas_wY1_H$C1== c1i   & gammas_wY1_H$C2== c2i  & gammas_wY1_H$X2== x2i  & gammas_wY1_H$X1== x1i,]$gamma)
+}
+}}}}  
+         
+sumtheta11Bvec[sw]<-sumtheta11B
+sumtheta00Bvec[sw]<-sumtheta00B
+gammas[,sw]<-gammas_wY1_H$gamma } ## End of MC
+
+	  my_gammas_wY1_H[[i]][,j] <- rowMeans(gammas[,1:nB])   
+        sumtheta00Bvec_wY1_H <- sumtheta00Bvec
+        sumtheta11Bvec_wY1_H <- sumtheta11Bvec
+
+##############################################################
+###############################################################
+# ## 
+print("BAYESIAN APPROACH WITH Y1 WITH H (uniform priors):")
+sumtheta11Bvec<-rep(0,nB)
+sumtheta00Bvec<-rep(0,nB)
+
+gammas_Y1_H<-data.frame(expand.grid(c(0,1),c(0,1),c(0,1),c(0,1),c(0,1),c(0,1),c(1), c("H","C1","C2","Y1","Y2"), c(NA)))
+colnames(gammas_Y1_H)<-c("H","C1","C2","X1","X2","Y1","Y2", "cond", "gamma")
+gammas<-matrix(0,dim(gammas_Y1_H)[1], nB)
+
+
+## Start of MC						            
+for(sw in 1:nB){
+	
+y2i<-1
+ for (x2i in 0:1) {
+x1i<-x2i
+    for (y1i in 0:1) {
+    for (h1i in 0:1) {
+      for (c2i in 0:1) {
+            for (c1i in 0:1) {
+gammas_Y1_H[gammas_Y1_H$cond=="H" & gammas_Y1_H$H== h1i,]$gamma<-HprobB(h1i)	          
+gammas_Y1_H[gammas_Y1_H$cond=="C1" & gammas_Y1_H$C1== c1i & gammas_Y1_H$H== h1i,]$gamma<-C1probB(h=h1i ,c1=c1i)	
+ gammas_Y1_H[gammas_Y1_H$cond=="Y1" & gammas_Y1_H$H== h1i & gammas_Y1_H$Y1== y1i  & gammas_Y1_H$C1== c1i  & gammas_Y1_H$X1== x1i,]$gamma<-Y1probB(h=h1i, y1=y1i, c1=c1i, x1=x1i)
+gammas_Y1_H[gammas_Y1_H$cond=="C2" & gammas_Y1_H$H== h1i & gammas_Y1_H$C2== c2i  & gammas_Y1_H$C1== c1i  & gammas_Y1_H$X1== x1i,]$gamma<-C2probB(h=h1i, c2=c2i, c1=c1i, x1=x1i)          
+ gammas_Y1_H[gammas_Y1_H$cond=="Y2" & gammas_Y1_H$H== h1i  & gammas_Y1_H$Y2== y2i & gammas_Y1_H$C2== c2i   & gammas_Y1_H$X2== x2i  & gammas_Y1_H$Y1== y1i,]$gamma<-Y2probB(h=h1i, y2=y2i, c2=c2i, x2=x2i, y1=y1i)       
+ }}}}}
+
+sumtheta11B<-0
+sumtheta00B<-0
+y2i<-1
+
+for(x1i in 0:1){        
+      x2i<-x1i 
+for(c2i in 0:1){
+for(y1i in 0:1){
+for(c1i in 0:1){
+	for (h1i in 0:1) {
+               
+if(x1i==1){ sumtheta11B<-sumtheta11B+
+unique(gammas_Y1_H[gammas_Y1_H$cond=="H" & gammas_Y1_H$H== h1i,]$gamma*
+gammas_Y1_H[gammas_Y1_H$cond=="C1" & gammas_Y1_H$C1== c1i & gammas_Y1_H$H== h1i,]$gamma*
+gammas_Y1_H[gammas_Y1_H$cond=="C2" & gammas_Y1_H$H== h1i & gammas_Y1_H$C2== c2i  & gammas_Y1_H$C1== c1i  & gammas_Y1_H$X1== x1i,]$gamma*
+gammas_Y1_H[gammas_Y1_H$cond=="Y1" & gammas_Y1_H$H== h1i & gammas_Y1_H$Y1== y1i  & gammas_Y1_H$C1== c1i  & gammas_Y1_H$X1== x1i,]$gamma*
+ gammas_Y1_H[gammas_Y1_H$cond=="Y2" & gammas_Y1_H$H== h1i  & gammas_Y1_H$Y2== y2i & gammas_Y1_H$C2== c2i   & gammas_Y1_H$X2== x2i  & gammas_Y1_H$Y1== y1i,]$gamma)
+}
+
+if(x1i==0){ sumtheta00B<-sumtheta00B+
+unique(gammas_Y1_H[gammas_Y1_H$cond=="H" & gammas_Y1_H$H== h1i,]$gamma*
+gammas_Y1_H[gammas_Y1_H$cond=="C1" & gammas_Y1_H$H== h1i  & gammas_Y1_H$C1== c1i ,]$gamma*
+gammas_Y1_H[gammas_Y1_H$cond=="C2"& gammas_Y1_H$H== h1i  & gammas_Y1_H$C2== c2i  & gammas_Y1_H$C1== c1i  & gammas_Y1_H$X1== x1i,]$gamma*
+gammas_Y1_H[gammas_Y1_H$cond=="Y1" & gammas_Y1_H$H== h1i & gammas_Y1_H$Y1== y1i  & gammas_Y1_H$C1== c1i  & gammas_Y1_H$X1== x1i,]$gamma*
+ gammas_Y1_H[gammas_Y1_H$cond=="Y2" & gammas_Y1_H$H== h1i & gammas_Y1_H$Y2== y2i    & gammas_Y1_H$C2== c2i  & gammas_Y1_H$X2== x2i  & gammas_Y1_H$Y1== y1i,]$gamma)
+}}}}}
+}             
+         
+sumtheta11Bvec[sw]<-sumtheta11B
+sumtheta00Bvec[sw]<-sumtheta00B
+gammas[,sw]<-gammas_Y1_H$gamma } ## End of MC
+
+	  my_gammas_Y1_H[[i]][,j]<-rowMeans(gammas[,1:nB])   
+        sumtheta00Bvec_Y1_H <- sumtheta00Bvec
+        sumtheta11Bvec_Y1_H <- sumtheta11Bvec
+
+#########################################
+#mod1<-(glm(Y2 ~ H*X1*X2*Y1*C1*C2, data = simdata, family = "binomial"))
+#mod2<-(glm(Y2 ~ H*Y1*C1*C2, data = simdata, family = "binomial"))
+#library(lmtest)
+#pval<-(lrtest(mod2,mod1))["Pr(>Chisq)"]
+#print(pval)
+
+
+#one-sided p-values:
+         Bpval_wY1_wH <- 1 - mean((sumtheta11Bvec_wY1_wH - sumtheta00Bvec_wY1_wH) > 0)
+         Bpval_Y1_wH <- 1 - mean((sumtheta11Bvec_Y1_wH - sumtheta00Bvec_Y1_wH) > 0)
+         Bpval_wY1_H <- 1 - mean((sumtheta11Bvec_wY1_H - sumtheta00Bvec_wY1_H) > 0)
+         Bpval_Y1_H <- 1 - mean((sumtheta11Bvec_Y1_H - sumtheta00Bvec_Y1_H) > 0)
+         Hpval <- (1-pnorm((summary(glm(Y2 ~ H, data = simdata, family = "binomial"))$coefficients[2, 3])))
+         Bayesresult[kkk, ] <- c(i, j, diff_theta[i], Bpval_Y1_H, Bpval_wY1_H, Bpval_Y1_wH, Bpval_wY1_wH, Hpval)
+         print(Bayesresult[kkk, ])
+         kkk <- kkk + 1
+    }
+      	   true_gammas[[i]]$simgamma_wY1_wH<-rowMeans(my_gammas_wY1_wH[[i]][,1:j])   
+   	   true_gammas[[i]]$simgamma_Y1_wH<-rowMeans(my_gammas_Y1_wH[[i]][,1:j])   
+	   true_gammas[[i]]$simgamma_wY1_H<-rowMeans(my_gammas_wY1_H[[i]][,1:j])   
+	   true_gammas[[i]]$simgamma_Y1_H<-rowMeans(my_gammas_Y1_H[[i]][,1:j])   
+}
+
+######################################################################## 
+## Are all gamma parameters correctly estimated?
+for(i in 1:length(true_gammas)){
+true_gammas[[i]]$Y2avg<-0
+true_gammas[[i]][true_gammas[[1]]$cond=="Y2"  & true_gammas[[i]]$C1==0,]$Y2avg<-c(
+c(table(simdata[simdata$C1==0,]$Y1)/sum(table(simdata[simdata$C1==0,]$Y1)))%*%rbind(true_gammas[[i]][true_gammas[[i]]$cond=="Y2" & true_gammas[[i]]$Y1==0 & true_gammas[[i]]$C1==0,]$gamma,true_gammas[[i]][true_gammas[[i]]$cond=="Y2" &true_gammas[[i]]$Y1==1,]$gamma))
+
+true_gammas[[i]][true_gammas[[i]]$cond=="Y2"  & true_gammas[[i]]$C1==1,]$Y2avg<-c(
+c(table(simdata[simdata$C1==1,]$Y1)/sum(table(simdata[simdata$C1==1,]$Y1)))%*%rbind(true_gammas[[i]][true_gammas[[i]]$cond=="Y2" & true_gammas[[i]]$Y1==0 & true_gammas[[i]]$C1==1,]$gamma,true_gammas[[i]][true_gammas[[i]]$cond=="Y2" &true_gammas[[i]]$Y1==1,]$gamma))
+
+}
+
+checkmat<-function(mat){
+	data.frame("error"=round(apply(cbind(abs(mat[,dim(mat)[2]]-mat$gamma),	abs(mat[,dim(mat)[2]]-mat$Y2avg)),1, min),2))	
+}
+
+
+errorcol<-function( colname="simgamma_wY1_wH"){
+for(i in 1:10){
+#	for(i in 1:length(true_gammas)){
+	dat<-na.omit(true_gammas[[i]][,c("H", "C1", "C2", "X1", "X2", "Y1", "Y2", "Y2avg","cond",  "gamma", colname)])
+
+if(i==1){dat_check<-data.frame(dat[!duplicated(dat[,c(colname)]),])
+		e<-checkmat (dat[!duplicated(dat[,c(colname)]),])
+colnames(e)<-paste("error",i,sep="_")
+	dat_check <-data.frame(dat_check,e)
+	}
+if(i>1){
+	e<-checkmat (dat[!duplicated(dat[,c(colname)]),])
+colnames(e)<-paste("error",i,sep="_")
+	dat_check <-data.frame(dat_check,e)}}
+	return(dat_check[,c(!colnames(dat_check)==colname)])}
+
+######################################################################## 
+
+
+errorList<-list(E_wY1_wH=errorcol("simgamma_wY1_wH"),
+E_Y1_wH=errorcol("simgamma_Y1_wH"),
+E_Y1_H=errorcol("simgamma_Y1_H"),
+E_wY1_H=errorcol("simgamma_wY1_H"))
+
+######################################################################## 
+alpha<-0.1
+power <- matrix(0, dim(dsgn)[1], 7)
+for (i in (dim(dsgn)[1]:1)) {
+    power[i, ] <- c(i, 
+    mean(Bayesresult[Bayesresult[, 1] == i, ][, 3]), 
+    mean(Bayesresult[Bayesresult[, 1] == i, ][, 4] <= alpha), 
+    mean(Bayesresult[Bayesresult[, 1] == i, ][, 5] <= alpha), 
+    mean(Bayesresult[Bayesresult[,1] == i, ][, 6] <= alpha), 
+    mean(Bayesresult[Bayesresult[,1] == i, ][, 7] <= alpha), 
+    mean(Bayesresult[Bayesresult[,1] == i, ][, 8] <= alpha))
+}
+colnames(power)<-c("i","diff_theta","with Y1 with H","without Y1 with H","with Y1 without H","without Y1 without H", "IV")
+power
+
+save(errorList, file="~/Documents/gcomp/Rcode/results/errorList_n10000.rda")
+save(true_gammas, file="~/Documents/gcomp/Rcode/results/true_gammas_n10000.rda")
+save(Bayesresult, file="~/Documents/gcomp/Rcode/results/Bayesresult_n10000.rda")
+save(power, file="~/Documents/gcomp/Rcode/results/power_n10000.rda")
+

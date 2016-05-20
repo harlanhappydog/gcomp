@@ -1,0 +1,393 @@
+{\rtf1\ansi
+\deff{\fonttbl
+{\f1\fswiss\fcharset0 Helvetica;}
+{\f2\ffroman\charset0\fprg2 Times New Roman;}
+{\f3\ffswiss\charset0\fprg2 Arial;}
+{\f4\fftech\charset0\fprg2 Symbol;}
+{\f4\ffroman\charset0\fprg2 Cambria;}
+}\paperw12240\paperh15840\widowctrl\ftnbj\fet0\sectd\linex0
+\margl1440\margr1440\margt1440\margb1440
+\titlepg\headery720\footery720
+{\footer {\pard\qc\fi0\li0 \f2\fs20 \field{\fldinst{page}} \par}}
+{\pard
+\trowd\trgaph100\trleft0 \trhdr\clvertalb\clshdrawnil\clwWidth2681\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\clbrdrt\brdrs\brdrw15\clbrdrb\brdrs\brdrw15\cellx1
+\clvertalb\clshdrawnil\clwWidth405\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\clbrdrt\brdrs\brdrw15\clbrdrb\brdrs\brdrw15\cellx2
+\clvertalb\clshdrawnil\clwWidth797\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\clbrdrt\brdrs\brdrw15\clbrdrb\brdrs\brdrw15\cellx3
+\clvertalb\clshdrawnil\clwWidth562\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\clbrdrt\brdrs\brdrw15\clbrdrb\brdrs\brdrw15\cellx4
+\clvertalb\clshdrawnil\clwWidth484\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\clbrdrt\brdrs\brdrw15\clbrdrb\brdrs\brdrw15\cellx5
+\clvertalb\clshdrawnil\clwWidth405\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\clbrdrt\brdrs\brdrw15\clbrdrb\brdrs\brdrw15\cellx6
+\clvertalb\clshdrawnil\clwWidth797\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\clbrdrt\brdrs\brdrw15\clbrdrb\brdrs\brdrw15\cellx7
+\clvertalb\clshdrawnil\clwWidth484\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\clbrdrt\brdrs\brdrw15\clbrdrb\brdrs\brdrw15\cellx8
+\clvertalb\clshdrawnil\clwWidth484\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\clbrdrt\brdrs\brdrw15\clbrdrb\brdrs\brdrw15\cellx9
+\clvertalb\clshdrawnil\clwWidth405\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\clbrdrt\brdrs\brdrw15\clbrdrb\brdrs\brdrw15\cellx10
+\clvertalb\clshdrawnil\clwWidth641\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\clbrdrt\brdrs\brdrw15\clbrdrb\brdrs\brdrw15\cellx11
+\clvertalb\clshdrawnil\clwWidth327\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\clbrdrt\brdrs\brdrw15\clbrdrb\brdrs\brdrw15\cellx12
+\clvertalb\clshdrawnil\clwWidth327\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\clbrdrt\brdrs\brdrw15\clbrdrb\brdrs\brdrw15\cellx13
+\clvertalb\clshdrawnil\clwWidth562\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\clbrdrt\brdrs\brdrw15\clbrdrb\brdrs\brdrw15\cellx14
+\pard\ql\widctlpar\intbl\fi0\f2\fs18\b rownames.Table1.\b0\cell
+\pard\ql\widctlpar\intbl\fi0\f2\fs18\b M.n\b0\cell
+\pard\ql\widctlpar\intbl\fi0\f2\fs18\b M.median\b0\cell
+\pard\ql\widctlpar\intbl\fi0\f2\fs18\b M.q1\b0\cell
+\pard\ql\widctlpar\intbl\fi0\f2\fs18\b M.q3\b0\cell
+\pard\ql\widctlpar\intbl\fi0\f2\fs18\b F.n\b0\cell
+\pard\ql\widctlpar\intbl\fi0\f2\fs18\b F.median\b0\cell
+\pard\ql\widctlpar\intbl\fi0\f2\fs18\b F.q1\b0\cell
+\pard\ql\widctlpar\intbl\fi0\f2\fs18\b F.q3\b0\cell
+\pard\ql\widctlpar\intbl\fi0\f2\fs18\b n\b0\cell
+\pard\ql\widctlpar\intbl\fi0\f2\fs18\b median\b0\cell
+\pard\ql\widctlpar\intbl\fi0\f2\fs18\b q1\b0\cell
+\pard\ql\widctlpar\intbl\fi0\f2\fs18\b q3\b0\cell
+\pard\ql\widctlpar\intbl\fi0\f2\fs18\b pval\b0\cell
+\widctlpar\intbl\row
+
+\trowd\trgaph100\trleft0\clvertalt\clshdrawnil\clwWidth2681\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx1
+\clvertalt\clshdrawnil\clwWidth405\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx2
+\clvertalt\clshdrawnil\clwWidth797\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx3
+\clvertalt\clshdrawnil\clwWidth562\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx4
+\clvertalt\clshdrawnil\clwWidth484\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx5
+\clvertalt\clshdrawnil\clwWidth405\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx6
+\clvertalt\clshdrawnil\clwWidth797\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx7
+\clvertalt\clshdrawnil\clwWidth484\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx8
+\clvertalt\clshdrawnil\clwWidth484\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx9
+\clvertalt\clshdrawnil\clwWidth405\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx10
+\clvertalt\clshdrawnil\clwWidth641\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx11
+\clvertalt\clshdrawnil\clwWidth327\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx12
+\clvertalt\clshdrawnil\clwWidth327\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx13
+\clvertalt\clshdrawnil\clwWidth562\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx14
+\pard\ql\widctlpar\intbl\fi0\f2\fs18 Aorta.Root.Inner\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 135\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 25\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 23\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 26\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 165\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 21\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 20\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 23\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 300\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 23\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 21\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 25\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 0\cell
+\widctlpar\intbl\row
+\trowd\trgaph100\trleft0\clvertalt\clshdrawnil\clwWidth2681\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx1
+\clvertalt\clshdrawnil\clwWidth405\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx2
+\clvertalt\clshdrawnil\clwWidth797\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx3
+\clvertalt\clshdrawnil\clwWidth562\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx4
+\clvertalt\clshdrawnil\clwWidth484\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx5
+\clvertalt\clshdrawnil\clwWidth405\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx6
+\clvertalt\clshdrawnil\clwWidth797\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx7
+\clvertalt\clshdrawnil\clwWidth484\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx8
+\clvertalt\clshdrawnil\clwWidth484\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx9
+\clvertalt\clshdrawnil\clwWidth405\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx10
+\clvertalt\clshdrawnil\clwWidth641\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx11
+\clvertalt\clshdrawnil\clwWidth327\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx12
+\clvertalt\clshdrawnil\clwWidth327\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx13
+\clvertalt\clshdrawnil\clwWidth562\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx14
+\pard\ql\widctlpar\intbl\fi0\f2\fs18 Aorta.Sinus.Inner\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 135\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 31\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 29\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 33.5\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 165\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 27\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 25\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 29\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 300\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 29\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 27\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 31\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 0\cell
+\widctlpar\intbl\row
+\trowd\trgaph100\trleft0\clvertalt\clshdrawnil\clwWidth2681\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx1
+\clvertalt\clshdrawnil\clwWidth405\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx2
+\clvertalt\clshdrawnil\clwWidth797\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx3
+\clvertalt\clshdrawnil\clwWidth562\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx4
+\clvertalt\clshdrawnil\clwWidth484\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx5
+\clvertalt\clshdrawnil\clwWidth405\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx6
+\clvertalt\clshdrawnil\clwWidth797\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx7
+\clvertalt\clshdrawnil\clwWidth484\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx8
+\clvertalt\clshdrawnil\clwWidth484\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx9
+\clvertalt\clshdrawnil\clwWidth405\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx10
+\clvertalt\clshdrawnil\clwWidth641\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx11
+\clvertalt\clshdrawnil\clwWidth327\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx12
+\clvertalt\clshdrawnil\clwWidth327\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx13
+\clvertalt\clshdrawnil\clwWidth562\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx14
+\pard\ql\widctlpar\intbl\fi0\f2\fs18 Aorta.Junction.Inner\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 135\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 27\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 25\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 30\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 165\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 24\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 23\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 26\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 300\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 26\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 24\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 28\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 0\cell
+\widctlpar\intbl\row
+\trowd\trgaph100\trleft0\clvertalt\clshdrawnil\clwWidth2681\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx1
+\clvertalt\clshdrawnil\clwWidth405\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx2
+\clvertalt\clshdrawnil\clwWidth797\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx3
+\clvertalt\clshdrawnil\clwWidth562\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx4
+\clvertalt\clshdrawnil\clwWidth484\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx5
+\clvertalt\clshdrawnil\clwWidth405\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx6
+\clvertalt\clshdrawnil\clwWidth797\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx7
+\clvertalt\clshdrawnil\clwWidth484\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx8
+\clvertalt\clshdrawnil\clwWidth484\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx9
+\clvertalt\clshdrawnil\clwWidth405\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx10
+\clvertalt\clshdrawnil\clwWidth641\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx11
+\clvertalt\clshdrawnil\clwWidth327\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx12
+\clvertalt\clshdrawnil\clwWidth327\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx13
+\clvertalt\clshdrawnil\clwWidth562\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx14
+\pard\ql\widctlpar\intbl\fi0\f2\fs18 Aorta.Proximal.Ascending.Inner\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 133\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 27\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 25\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 30\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 165\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 24\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 23\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 26\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 298\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 26\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 24\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 28\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 0\cell
+\widctlpar\intbl\row
+\trowd\trgaph100\trleft0\clvertalt\clshdrawnil\clwWidth2681\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx1
+\clvertalt\clshdrawnil\clwWidth405\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx2
+\clvertalt\clshdrawnil\clwWidth797\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx3
+\clvertalt\clshdrawnil\clwWidth562\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx4
+\clvertalt\clshdrawnil\clwWidth484\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx5
+\clvertalt\clshdrawnil\clwWidth405\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx6
+\clvertalt\clshdrawnil\clwWidth797\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx7
+\clvertalt\clshdrawnil\clwWidth484\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx8
+\clvertalt\clshdrawnil\clwWidth484\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx9
+\clvertalt\clshdrawnil\clwWidth405\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx10
+\clvertalt\clshdrawnil\clwWidth641\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx11
+\clvertalt\clshdrawnil\clwWidth327\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx12
+\clvertalt\clshdrawnil\clwWidth327\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx13
+\clvertalt\clshdrawnil\clwWidth562\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx14
+\pard\ql\widctlpar\intbl\fi0\f2\fs18 Mid.Aorta.Inner\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 133\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 27\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 25\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 29\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 164\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 25\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 23\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 27\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 297\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 26\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 24\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 28\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 1e-09\cell
+\widctlpar\intbl\row
+\trowd\trgaph100\trleft0\clvertalt\clshdrawnil\clwWidth2681\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx1
+\clvertalt\clshdrawnil\clwWidth405\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx2
+\clvertalt\clshdrawnil\clwWidth797\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx3
+\clvertalt\clshdrawnil\clwWidth562\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx4
+\clvertalt\clshdrawnil\clwWidth484\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx5
+\clvertalt\clshdrawnil\clwWidth405\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx6
+\clvertalt\clshdrawnil\clwWidth797\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx7
+\clvertalt\clshdrawnil\clwWidth484\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx8
+\clvertalt\clshdrawnil\clwWidth484\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx9
+\clvertalt\clshdrawnil\clwWidth405\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx10
+\clvertalt\clshdrawnil\clwWidth641\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx11
+\clvertalt\clshdrawnil\clwWidth327\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx12
+\clvertalt\clshdrawnil\clwWidth327\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx13
+\clvertalt\clshdrawnil\clwWidth562\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx14
+\pard\ql\widctlpar\intbl\fi0\f2\fs18 Aorta.Arch.Inner\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 128\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 26\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 23.75\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 28\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 158\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 24\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 22\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 25\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 286\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 24\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 22\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 27\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 6e-09\cell
+\widctlpar\intbl\row
+\trowd\trgaph100\trleft0\clvertalt\clshdrawnil\clwWidth2681\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx1
+\clvertalt\clshdrawnil\clwWidth405\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx2
+\clvertalt\clshdrawnil\clwWidth797\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx3
+\clvertalt\clshdrawnil\clwWidth562\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx4
+\clvertalt\clshdrawnil\clwWidth484\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx5
+\clvertalt\clshdrawnil\clwWidth405\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx6
+\clvertalt\clshdrawnil\clwWidth797\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx7
+\clvertalt\clshdrawnil\clwWidth484\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx8
+\clvertalt\clshdrawnil\clwWidth484\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx9
+\clvertalt\clshdrawnil\clwWidth405\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx10
+\clvertalt\clshdrawnil\clwWidth641\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx11
+\clvertalt\clshdrawnil\clwWidth327\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx12
+\clvertalt\clshdrawnil\clwWidth327\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx13
+\clvertalt\clshdrawnil\clwWidth562\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx14
+\pard\ql\widctlpar\intbl\fi0\f2\fs18 Aorta.Root.Leading\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 135\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 28\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 25\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 29.5\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 165\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 24\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 22\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 25\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 300\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 25\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 23\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 27\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 0\cell
+\widctlpar\intbl\row
+\trowd\trgaph100\trleft0\clvertalt\clshdrawnil\clwWidth2681\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx1
+\clvertalt\clshdrawnil\clwWidth405\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx2
+\clvertalt\clshdrawnil\clwWidth797\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx3
+\clvertalt\clshdrawnil\clwWidth562\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx4
+\clvertalt\clshdrawnil\clwWidth484\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx5
+\clvertalt\clshdrawnil\clwWidth405\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx6
+\clvertalt\clshdrawnil\clwWidth797\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx7
+\clvertalt\clshdrawnil\clwWidth484\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx8
+\clvertalt\clshdrawnil\clwWidth484\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx9
+\clvertalt\clshdrawnil\clwWidth405\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx10
+\clvertalt\clshdrawnil\clwWidth641\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx11
+\clvertalt\clshdrawnil\clwWidth327\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx12
+\clvertalt\clshdrawnil\clwWidth327\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx13
+\clvertalt\clshdrawnil\clwWidth562\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx14
+\pard\ql\widctlpar\intbl\fi0\f2\fs18 Aorta.Sinus.Leading\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 135\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 33\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 31\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 36\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 165\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 29\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 27\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 31\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 300\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 31\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 28\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 34\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 0\cell
+\widctlpar\intbl\row
+\trowd\trgaph100\trleft0\clvertalt\clshdrawnil\clwWidth2681\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx1
+\clvertalt\clshdrawnil\clwWidth405\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx2
+\clvertalt\clshdrawnil\clwWidth797\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx3
+\clvertalt\clshdrawnil\clwWidth562\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx4
+\clvertalt\clshdrawnil\clwWidth484\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx5
+\clvertalt\clshdrawnil\clwWidth405\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx6
+\clvertalt\clshdrawnil\clwWidth797\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx7
+\clvertalt\clshdrawnil\clwWidth484\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx8
+\clvertalt\clshdrawnil\clwWidth484\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx9
+\clvertalt\clshdrawnil\clwWidth405\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx10
+\clvertalt\clshdrawnil\clwWidth641\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx11
+\clvertalt\clshdrawnil\clwWidth327\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx12
+\clvertalt\clshdrawnil\clwWidth327\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx13
+\clvertalt\clshdrawnil\clwWidth562\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx14
+\pard\ql\widctlpar\intbl\fi0\f2\fs18 Aorta.Junction.Leading\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 135\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 31\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 28\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 33\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 165\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 27\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 25\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 29\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 300\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 28\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 26\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 31\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 0\cell
+\widctlpar\intbl\row
+\trowd\trgaph100\trleft0\clvertalt\clshdrawnil\clwWidth2681\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx1
+\clvertalt\clshdrawnil\clwWidth405\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx2
+\clvertalt\clshdrawnil\clwWidth797\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx3
+\clvertalt\clshdrawnil\clwWidth562\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx4
+\clvertalt\clshdrawnil\clwWidth484\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx5
+\clvertalt\clshdrawnil\clwWidth405\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx6
+\clvertalt\clshdrawnil\clwWidth797\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx7
+\clvertalt\clshdrawnil\clwWidth484\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx8
+\clvertalt\clshdrawnil\clwWidth484\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx9
+\clvertalt\clshdrawnil\clwWidth405\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx10
+\clvertalt\clshdrawnil\clwWidth641\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx11
+\clvertalt\clshdrawnil\clwWidth327\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx12
+\clvertalt\clshdrawnil\clwWidth327\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx13
+\clvertalt\clshdrawnil\clwWidth562\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx14
+\pard\ql\widctlpar\intbl\fi0\f2\fs18 Aorta.Proximal.Ascending.Leading\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 133\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 30\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 28\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 32\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 165\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 27\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 25\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 29\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 298\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 28\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 26\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 31\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 0\cell
+\widctlpar\intbl\row
+\trowd\trgaph100\trleft0\clvertalt\clshdrawnil\clwWidth2681\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx1
+\clvertalt\clshdrawnil\clwWidth405\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx2
+\clvertalt\clshdrawnil\clwWidth797\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx3
+\clvertalt\clshdrawnil\clwWidth562\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx4
+\clvertalt\clshdrawnil\clwWidth484\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx5
+\clvertalt\clshdrawnil\clwWidth405\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx6
+\clvertalt\clshdrawnil\clwWidth797\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx7
+\clvertalt\clshdrawnil\clwWidth484\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx8
+\clvertalt\clshdrawnil\clwWidth484\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx9
+\clvertalt\clshdrawnil\clwWidth405\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx10
+\clvertalt\clshdrawnil\clwWidth641\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx11
+\clvertalt\clshdrawnil\clwWidth327\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx12
+\clvertalt\clshdrawnil\clwWidth327\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx13
+\clvertalt\clshdrawnil\clwWidth562\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\cellx14
+\pard\ql\widctlpar\intbl\fi0\f2\fs18 Mid.Aorta.Leading\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 133\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 30\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 28\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 32\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 164\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 27\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 25\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 29\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 297\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 28\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 26\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 31\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 0\cell
+\widctlpar\intbl\row
+\trowd\trgaph100\trleft0\clvertalt\clshdrawnil\clwWidth2681\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\clbrdrb\brdrs\brdrw15\cellx1
+\clvertalt\clshdrawnil\clwWidth405\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\clbrdrb\brdrs\brdrw15\cellx2
+\clvertalt\clshdrawnil\clwWidth797\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\clbrdrb\brdrs\brdrw15\cellx3
+\clvertalt\clshdrawnil\clwWidth562\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\clbrdrb\brdrs\brdrw15\cellx4
+\clvertalt\clshdrawnil\clwWidth484\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\clbrdrb\brdrs\brdrw15\cellx5
+\clvertalt\clshdrawnil\clwWidth405\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\clbrdrb\brdrs\brdrw15\cellx6
+\clvertalt\clshdrawnil\clwWidth797\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\clbrdrb\brdrs\brdrw15\cellx7
+\clvertalt\clshdrawnil\clwWidth484\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\clbrdrb\brdrs\brdrw15\cellx8
+\clvertalt\clshdrawnil\clwWidth484\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\clbrdrb\brdrs\brdrw15\cellx9
+\clvertalt\clshdrawnil\clwWidth405\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\clbrdrb\brdrs\brdrw15\cellx10
+\clvertalt\clshdrawnil\clwWidth641\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\clbrdrb\brdrs\brdrw15\cellx11
+\clvertalt\clshdrawnil\clwWidth327\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\clbrdrb\brdrs\brdrw15\cellx12
+\clvertalt\clshdrawnil\clwWidth327\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\clbrdrb\brdrs\brdrw15\cellx13
+\clvertalt\clshdrawnil\clwWidth562\clftsWidth3\clheight260\clpadl100\clpadr100\gaph\clbrdrb\brdrs\brdrw15\cellx14
+\pard\ql\widctlpar\intbl\fi0\f2\fs18 Aorta.Arch.Leading\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 128\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 28\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 26\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 31\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 158\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 26\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 24\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 28\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 286\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 27\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 25\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 29\cell
+\pard\qr\widctlpar\intbl\fi0\f2\fs18 6e-09\cell
+\widctlpar\intbl\row
+}
+
+}

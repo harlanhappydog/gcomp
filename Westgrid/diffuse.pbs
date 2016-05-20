@@ -1,0 +1,13 @@
+#!/bin/bash
+#PBS -S /bin/bash
+
+# Script for running serial program, diffuse.
+
+echo "Current working directory is `pwd`"
+
+echo "Starting run at: `date`"
+
+module load application/R/3.1.2
+
+R --vanilla -f perm_test.R
+echo "Job finished with exit code $? at: `date`"

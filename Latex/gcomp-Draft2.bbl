@@ -1,70 +1,286 @@
 \begin{thebibliography}{10}
 
-\bibitem{karim2014marginal}
-M.~E. Karim, P.~Gustafson, J.~Petkau, Y.~Zhao, A.~Shirani, E.~Kingwell,
-  C.~Evans, M.~van~der Kop, J.~Oger, and H.~Tremlett, ``Marginal structural cox
-  models for estimating the association between $\beta$-interferon exposure and
-  disease progression in a multiple sclerosis cohort,'' {\em American journal
-  of epidemiology}, vol.~180, no.~2, pp.~160--171, 2014.
-
-\bibitem{snowden2011implementation}
-J.~M. Snowden, S.~Rose, and K.~M. Mortimer, ``Implementation of g-computation
-  on a simulated data set: demonstration of a causal inference technique,''
-  {\em American Journal of Epidemiology}, p.~kwq472, 2011.
-
-\bibitem{johnston2008use}
-K.~Johnston, P.~Gustafson, A.~Levy, and P.~Grootendorst, ``Use of instrumental
-  variables in the analysis of generalized linear models in the presence of
-  unmeasured confounding with applications to epidemiological research,'' {\em
-  Statistics in medicine}, vol.~27, no.~9, pp.~1539--1556, 2008.
-
-\bibitem{tremlett2008natural}
-H.~Tremlett, Y.~Zhao, and V.~Devonshire, ``Natural history of
-  secondary-progressive multiple sclerosis,'' {\em Multiple sclerosis},
-  vol.~14, no.~3, pp.~314--324, 2008.
-
-\bibitem{tremlett2010new}
-H.~Tremlett, Y.~Zhao, P.~Rieckmann, and M.~Hutchinson, ``New perspectives in
-  the natural history of multiple sclerosis,'' {\em Neurology}, vol.~74,
-  no.~24, pp.~2004--2015, 2010.
-
-\bibitem{saarela2015bayesian}
-O.~Saarela, D.~A. Stephens, E.~E. Moodie, and M.~B. Klein, ``On bayesian
-  estimation of marginal structural models,'' {\em Biometrics}, 2015.
-
-\bibitem{cain2009effect}
-L.~E. Cain, S.~R. Cole, S.~Greenland, T.~T. Brown, J.~S. Chmiel, L.~Kingsley,
-  and R.~Detels, ``Effect of highly active antiretroviral therapy on incident
-  aids using calendar period as an instrumental variable,'' {\em American
-  journal of epidemiology}, p.~kwp002, 2009.
-
 \bibitem{borsi2012estimating}
-L.~Borsi, {\em Estimating the Causal Effect of Switching to Second-line
+{\sc Borsi, L.}
+\newblock {\em Estimating the Causal Effect of Switching to Second-line
   Antiretroviral HIV Treatment Using G-computation}.
 \newblock PhD thesis, ETH, Department of Mathematics, 2012.
 
-\bibitem{kurokiinstrumental}
-M.~Kuroki and Z.~Cai, ``Instrumental variable tests for directed acyclic graph
-  models,''
+\bibitem{brenner2002long}
+{\sc Brenner, H.}
+\newblock Long-term survival rates of cancer patients achieved by the end of
+  the 20th century: a period analysis.
+\newblock {\em The Lancet 360}, 9340 (2002), 1131--1135.
 
-\bibitem{greenland2000introduction}
-S.~Greenland, ``An introduction to instrumental variables for
-  epidemiologists,'' {\em International journal of epidemiology}, vol.~29,
-  no.~4, pp.~722--729, 2000.
+\bibitem{brion2013calculating}
+{\sc Brion, M.-J.~A., Shakhbazov, K., and Visscher, P.~M.}
+\newblock Calculating statistical power in mendelian randomization studies.
+\newblock {\em International journal of epidemiology 42}, 5 (2013), 1497--1501.
 
-\bibitem{peter2011marginal}
-K.~Peter, {\em Marginal structural models and causal inference}.
-\newblock PhD thesis, Master thesis, ETH, 2011.
+\bibitem{burgess2014sample}
+{\sc Burgess, S.}
+\newblock Sample size and power calculations in mendelian randomization with a
+  single instrumental variable and a binary outcome.
+\newblock {\em International journal of epidemiology\/} (2014), dyu005.
+
+\bibitem{cain2009effect}
+{\sc Cain, L.~E., Cole, S.~R., Greenland, S., Brown, T.~T., Chmiel, J.~S.,
+  Kingsley, L., and Detels, R.}
+\newblock Effect of highly active antiretroviral therapy on incident aids using
+  calendar period as an instrumental variable.
+\newblock {\em American journal of epidemiology\/} (2009), kwp002.
 
 \bibitem{chakraborty2013g}
-B.~Chakraborty and E.~E. Moodie, ``G-computation: Parametric estimation of
-  optimal dtrs,'' in {\em Statistical Methods for Dynamic Treatment Regimes},
-  pp.~101--112, Springer, 2013.
+{\sc Chakraborty, B., and Moodie, E.~E.}
+\newblock G-computation: Parametric estimation of optimal dtrs.
+\newblock In {\em Statistical Methods for Dynamic Treatment Regimes}. Springer,
+  2013, pp.~101--112.
+
+\bibitem{cole2013analysis}
+{\sc Cole, S.~R., Richardson, D.~B., Chu, H., and Naimi, A.~I.}
+\newblock Analysis of occupational asbestos exposure and lung cancer mortality
+  using the g formula.
+\newblock {\em American journal of epidemiology\/} (2013), kws343.
+
+\bibitem{daniel2013methods}
+{\sc Daniel, R., Cousens, S., De~Stavola, B., Kenward, M., and Sterne, J.}
+\newblock Methods for dealing with time-dependent confounding.
+\newblock {\em Statistics in Medicine 32}, 9 (2013), 1584--1618.
+
+\bibitem{daniel2011gformula}
+{\sc Daniel, R.~M., De~Stavola, B.~L., Cousens, S.~N., et~al.}
+\newblock gformula: Estimating causal effects in the presence of time-varying
+  confounding or mediation using the g-computation formula.
+\newblock {\em Stata Journal 11}, 4 (2011), 479.
+
+\bibitem{decker2014semiparametric}
+{\sc Decker, A.~L., Hubbard, A., Crespi, C.~M., Seto, E.~Y., and Wang, M.~C.}
+\newblock Semiparametric estimation of the impacts of longitudinal
+  interventions on adolescent obesity using targeted maximum-likelihood:
+  Accessible estimation with the ltmle package.
+\newblock {\em Journal of Causal Inference J. Causal Infer. 2}, 1 (2014),
+  95--108.
+
+\bibitem{desquilbet2009relationship}
+{\sc Desquilbet, L., Margolick, J.~B., Fried, L.~P., Phair, J.~P., Jamieson,
+  B.~D., Holloway, M., and Jacobson, L.~P.}
+\newblock Relationship between a frailty-related phenotype and progressive
+  deterioration of the immune system in hiv-infected men.
+\newblock {\em Journal of acquired immune deficiency syndromes (1999) 50}, 3
+  (2009), 299.
+
+\bibitem{glymour2012credible}
+{\sc Glymour, M.~M., Tchetgen, E. J.~T., and Robins, J.~M.}
+\newblock Credible mendelian randomization studies: approaches for evaluating
+  the instrumental variable assumptions.
+\newblock {\em American journal of epidemiology 175}, 4 (2012), 332--339.
+
+\bibitem{greenland2000introduction}
+{\sc Greenland, S.}
+\newblock An introduction to instrumental variables for epidemiologists.
+\newblock {\em International journal of epidemiology 29}, 4 (2000), 722--729.
+
+\bibitem{gustafson2015discussion}
+{\sc Gustafson, P.}
+\newblock Discussion of ?on bayesian estimation of marginal structural models?
+\newblock {\em Biometrics 71}, 2 (2015), 291--293.
+
+\bibitem{johnston2008use}
+{\sc Johnston, K., Gustafson, P., Levy, A., and Grootendorst, P.}
+\newblock Use of instrumental variables in the analysis of generalized linear
+  models in the presence of unmeasured confounding with applications to
+  epidemiological research.
+\newblock {\em Statistics in medicine 27}, 9 (2008), 1539--1556.
+
+\bibitem{karim2014marginal}
+{\sc Karim, M.~E., Gustafson, P., Petkau, J., Zhao, Y., Shirani, A., Kingwell,
+  E., Evans, C., van~der Kop, M., Oger, J., and Tremlett, H.}
+\newblock Marginal structural cox models for estimating the association between
+  $\beta$-interferon exposure and disease progression in a multiple sclerosis
+  cohort.
+\newblock {\em American journal of epidemiology 180}, 2 (2014), 160--171.
+
+\bibitem{keil2015bayesian}
+{\sc Keil, A.~P., Daza, E.~J., Engel, S.~M., Buckley, J.~P., and Edwards,
+  J.~K.}
+\newblock A bayesian approach to the g-formula.
+\newblock {\em arXiv preprint arXiv:1512.04809\/} (2015).
+
+\bibitem{keil2014parametric}
+{\sc Keil, A.~P., Edwards, J.~K., Richardson, D.~R., Naimi, A.~I., and Cole,
+  S.~R.}
+\newblock The parametric g-formula for time-to-event data: towards intuition
+  with a worked example.
+\newblock {\em Epidemiology (Cambridge, Mass.) 25}, 6 (2014), 889.
+
+\bibitem{kurokiinstrumental}
+{\sc Kuroki, M., and Cai, Z.}
+\newblock Instrumental variable tests for directed acyclic graph models.
+
+\bibitem{leestructural}
+{\sc Lee, M.-j., and Huang, F.}
+\newblock Structural instrumental variable estimator for dynamic treatment
+  effects: Spanking effect on behavior.
+
+\bibitem{lee2012finding}
+{\sc Lee, M.-j., and Huang, F.}
+\newblock Finding dynamic treatment effects under anticipation: the effects of
+  spanking on behaviour.
+\newblock {\em Journal of the Royal Statistical Society: Series A (Statistics
+  in Society) 175}, 2 (2012), 535--567.
+
+\bibitem{lok2004estimating}
+{\sc Lok, J., Gill, R., Van Der~Vaart, A., and Robins, J.}
+\newblock Estimating the causal effect of a time-varying treatment on
+  time-to-event using structural nested failure time models.
+\newblock {\em Statistica Neerlandica 58}, 3 (2004), 271--295.
+
+\bibitem{mack2015comparative}
+{\sc Mack, C.~D., Brookhart, M.~A., Glynn, R.~J., Meyer, A.~M., Carpenter,
+  W.~R., Sandler, R.~S., and St{\"u}rmer, T.}
+\newblock Comparative effectiveness of oxaliplatin versus 5-flourouricil in
+  older adults: An instrumental variable analysis.
+\newblock {\em Epidemiology 26}, 5 (2015), 690--699.
+
+\bibitem{mccandless2007bayesian}
+{\sc McCandless, L.~C., Gustafson, P., and Levy, A.}
+\newblock Bayesian sensitivity analysis for unmeasured confounding in
+  observational studies.
+\newblock {\em Statistics in medicine 26}, 11 (2007), 2331--2347.
+
+\bibitem{mcmahon2000design}
+{\sc McMahon, A.~D., and MacDonald, T.~M.}
+\newblock Design issues for drug epidemiology.
+\newblock {\em British journal of clinical pharmacology 50}, 5 (2000),
+  419--425.
+
+\bibitem{moore2008ambient}
+{\sc Moore, K., Neugebauer, R., Lurmann, F., Hall, J., Brajer, V., Alcorn, S.,
+  and Tager, I.}
+\newblock Ambient ozone concentrations cause increased hospitalizations for
+  asthma in children: an 18-year study in southern california.
+\newblock {\em Environmental Health Perspectives 116}, 8 (2008), 1063.
+
+\bibitem{neugebauer2007causal}
+{\sc Neugebauer, R., van~der Laan, M.~J., Joffe, M.~M., and Tager, I.~B.}
+\newblock Causal inference in longitudinal studies with history-restricted
+  marginal structural models.
+\newblock {\em Electronic journal of statistics 1\/} (2007), 119.
+
+\bibitem{park2015bayesian}
+{\sc Park, S., and Kaplan, D.}
+\newblock Bayesian causal mediation analysis for group randomized designs with
+  homogeneous and heterogeneous effects: Simulation and case study.
+\newblock {\em Multivariate behavioral research 50}, 3 (2015), 316--333.
+
+\bibitem{peter2011marginal}
+{\sc Peter, K.}
+\newblock {\em Marginal structural models and causal inference}.
+\newblock PhD thesis, Master thesis, ETH, 2011.
+
+\bibitem{petersen2014targeted}
+{\sc Petersen, M., Schwab, J., Gruber, S., Blaser, N., Schomaker, M., and
+  van~der Laan, M.}
+\newblock Targeted maximum likelihood estimation for dynamic and static
+  longitudinal marginal structural working models.
+\newblock {\em Journal of causal inference 2}, 2 (2014), 147--185.
+
+\bibitem{petersen2014commentary}
+{\sc Petersen, M.~L.}
+\newblock Commentary: Applying a causal road map in settings with
+  time-dependent confounding.
+\newblock {\em Epidemiology (Cambridge, Mass.) 25}, 6 (2014), 898--901.
+
+\bibitem{petersen2007pillbox}
+{\sc Petersen, M.~L., Wang, Y., Van Der~Laan, M.~J., Guzman, D., Riley, E., and
+  Bangsberg, D.~R.}
+\newblock Pillbox organizers are associated with improved adherence to hiv
+  antiretroviral therapy and viral suppression: a marginal structural model
+  analysis.
+\newblock {\em Clinical Infectious Diseases 45}, 7 (2007), 908--915.
+
+\bibitem{pierce2010power}
+{\sc Pierce, B.~L., Ahsan, H., and VanderWeele, T.~J.}
+\newblock Power and instrument strength requirements for mendelian
+  randomization studies using multiple genetic variants.
+\newblock {\em International journal of epidemiology\/} (2010), dyq151.
+
+\bibitem{pierce2013efficient}
+{\sc Pierce, B.~L., and Burgess, S.}
+\newblock Efficient design for mendelian randomization studies: subsample and
+  2-sample instrumental variable estimators.
+\newblock {\em American journal of epidemiology 178}, 7 (2013), 1177--1184.
+
+\bibitem{robins2003general}
+{\sc Robins, J.~M.}
+\newblock General methodological considerations.
+\newblock {\em Journal of Econometrics 112}, 1 (2003), 89--106.
+
+\bibitem{rosenbaum1984consquences}
+{\sc Rosenbaum, P.~R.}
+\newblock The consquences of adjustment for a concomitant variable that has
+  been affected by the treatment.
+\newblock {\em Journal of the Royal Statistical Society. Series A (General)\/}
+  (1984), 656--666.
+
+\bibitem{saarela2015bayesian}
+{\sc Saarela, O., Stephens, D.~A., Moodie, E.~E., and Klein, M.~B.}
+\newblock On bayesian estimation of marginal structural models.
+\newblock {\em Biometrics\/} (2015).
+
+\bibitem{shinozaki2014estimation}
+{\sc Shinozaki, T., Matsuyama, Y., and Ohashi, Y.}
+\newblock Estimation of controlled direct effects in time-varying treatments
+  using structural nested mean models: application to a primary prevention
+  trial for coronary events with pravastatin.
+\newblock {\em Statistics in medicine 33}, 18 (2014), 3214--3228.
+
+\bibitem{snowden2011implementation}
+{\sc Snowden, J.~M., Rose, S., and Mortimer, K.~M.}
+\newblock Implementation of g-computation on a simulated data set:
+  demonstration of a causal inference technique.
+\newblock {\em American Journal of Epidemiology\/} (2011), kwq472.
+
+\bibitem{stukel2007analysis}
+{\sc Stukel, T.~A., Fisher, E.~S., Wennberg, D.~E., Alter, D.~A., Gottlieb,
+  D.~J., and Vermeulen, M.~J.}
+\newblock Analysis of observational studies in the presence of treatment
+  selection bias: effects of invasive cardiac management on ami survival using
+  propensity score and instrumental variable methods.
+\newblock {\em Jama 297}, 3 (2007), 278--285.
 
 \bibitem{taubman2009intervening}
-S.~L. Taubman, J.~M. Robins, M.~A. Mittleman, and M.~A. Hern{\'a}n,
-  ``Intervening on risk factors for coronary heart disease: an application of
-  the parametric g-formula,'' {\em International Journal of Epidemiology},
-  vol.~38, no.~6, pp.~1599--1611, 2009.
+{\sc Taubman, S.~L., Robins, J.~M., Mittleman, M.~A., and Hern{\'a}n, M.~A.}
+\newblock Intervening on risk factors for coronary heart disease: an
+  application of the parametric g-formula.
+\newblock {\em International Journal of Epidemiology 38}, 6 (2009), 1599--1611.
+
+\bibitem{tremlett2008natural}
+{\sc Tremlett, H., Zhao, Y., and Devonshire, V.}
+\newblock Natural history of secondary-progressive multiple sclerosis.
+\newblock {\em Multiple sclerosis 14}, 3 (2008), 314--324.
+
+\bibitem{tremlett2010new}
+{\sc Tremlett, H., Zhao, Y., Rieckmann, P., and Hutchinson, M.}
+\newblock New perspectives in the natural history of multiple sclerosis.
+\newblock {\em Neurology 74}, 24 (2010), 2004--2015.
+
+\bibitem{vansteelandt2011invited}
+{\sc Vansteelandt, S., and Keiding, N.}
+\newblock Invited commentary: G-computation--lost in translation?
+\newblock {\em American journal of epidemiology\/} (2011), kwq474.
+
+\bibitem{wang2011estimating}
+{\sc Wang, W., Scharfstein, D., Wang, C., Daniels, M., Needham, D., and Brower,
+  R.}
+\newblock Estimating the causal effect of low tidal volume ventilation on
+  survival in patients with acute lung injury.
+\newblock {\em Journal of the Royal Statistical Society: Series C (Applied
+  Statistics) 60}, 4 (2011), 475--496.
+
+\bibitem{weinberg1993toward}
+{\sc Weinberg, C.~R.}
+\newblock Toward a clearer definition of confounding.
+\newblock {\em American Journal of Epidemiology 137}, 1 (1993), 1--8.
 
 \end{thebibliography}
